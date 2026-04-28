@@ -1,7 +1,7 @@
 ---
 name: knowledge-manager
 description: Complete knowledge base management - create, organize, and maintain Obsidian-style knowledge notes. Use this skill for the full knowledge lifecycle: create new notes with proper structure and folder organization, detect and merge duplicate notes, optimize cross-linking, and maintain a clean, usable knowledge base. Also triggers when user wants to add research, document a topic, check for duplicates, clean up notes, or maintain knowledge organization.
-triggers: ["add note", "document this", "create knowledge", "research", "learn about", "build knowledge", "capture", "find duplicates", "merge notes", "clean up", "check duplicates", "organization", "maintain knowledge", "optimize knowledge"]
+triggers: ["add note", "document this", "create knowledge", "research", "learn about", "build knowledge", "capture", "add IaC", "add DevOps", "add AI", "find duplicates", "merge notes", "clean up", "check duplicates", "organization", "maintain knowledge", "optimize knowledge"]
 tools: [filesystem, read, write, glob, mkdir, grep]
 category: knowledge-management
 ---
@@ -16,6 +16,7 @@ Complete knowledge base management skill that handles the full knowledge lifecyc
 
 ## Creation Mode Trigger Phrases
 - "add [topic]" or "add note about [topic]"
+- "add [category]/[topic]" - e.g., "add IaC/ansible", "add DevOps/kubernetes"
 - "document [subject]"
 - "create knowledge about [topic]"
 - "research [topic]"
@@ -23,6 +24,18 @@ Complete knowledge base management skill that handles the full knowledge lifecyc
 - "build knowledge base on [topic]"
 - "learn about [subject]"
 - "create documentation about [X]"
+
+## Category Format
+
+When user provides category, use format: `"add <category>/<topic>"`
+
+Examples:
+| Request | Category | Topic | Output Path |
+|---------|---------|------|-----------|
+| "add IaC/ansible" | IaC | ansible | examples/knowledge/ansible/ |
+| "add DevOps/kubernetes" | DevOps | kubernetes | examples/knowledge/kubernetes/ |
+| "add AI/langchain" | AI | langchain | examples/knowledge/langchain-ai/ |
+| "add ansible" | (none) | ansible | examples/knowledge/ansible/ |
 
 ## Refactor Mode Trigger Phrases
 - "find duplicates"
@@ -55,14 +68,22 @@ The skill automatically detects which mode to use:
 
 Follow these steps when creating new knowledge notes.
 
-## Step 1: Identify Topic and Type
+## Step 1: Identify Topic, Type, and Category
 
-### A. Determine the CATEGORY
+### A. Determine the TOPIC (REQUIRED)
 Extract topic from user's request:
-- "add kubernetes" → category: `kubernetes`
-- "document React hooks" → category: `react-hooks`
+- "add kubernetes" → topic: `kubernetes`
+- "add ansible" → topic: `ansible`
 
-### B. Determine CONTENT TYPE
+### B. Determine the CATEGORY (if provided by user)
+Extract category from request format: `"add <category>/<topic>"`:
+- "add IaC/ansible" → category: `IaC`, topic: `ansible`
+- "add DevOps/kubernetes" → category: `DevOps`, topic: `kubernetes`
+- "add AI/langchain" → category: `AI`, topic: `langchain`
+
+If no category provided, topic goes directly to `examples/knowledge/<topic>/`
+
+### C. Determine CONTENT TYPE
 - Explanatory content → `concept` → `concepts/` folder
 - How-to/Process content → `guide` → `guides/` folder
 - Quick reference → `reference` → `references/` folder
@@ -82,11 +103,21 @@ Type inference:
 
 ## Step 2: Create Folder Structure (CRITICAL)
 
-Create before files:
+**If category provided:**
+```
+knowledge/<category>/
+└── <topic>/
+    ├── concepts/
+    ├── guides/
+    ├── references/
+    ├── examples/
+    └── INDEX.md
+```
 
+**If no category:**
 ```
 knowledge/
-└── <category>/
+└── <topic>/
     ├── concepts/
     ├── guides/
     ├── references/
@@ -107,17 +138,27 @@ knowledge/
 
 **IMPORTANT**: When creating a new topic, ALWAYS fetch documentation to create an example in `examples/` folder.
 
+### Supported Categories
+
+| Category | Topics |
+|----------|-------|
+| IaC | terraform, terragrunt, ansible, puppet, chef |
+| DevOps | kubernetes, argocd, docker, helm, kubectl |
+| AI | deepagents, langchain, langgraph, openai |
+
 ### A. Find Documentation URL
 
-Search for official documentation based on category:
+Search for official documentation based on topic:
 
-| Category | Documentation |
+| Topic | Documentation |
 |----------|---------------|
 | kubernetes | https://kubernetes.io/docs/ |
 | terraform | https://www.terraform.io/docs/ |
+| terragrunt | https://docs.terragrunt.com/ |
+| ansible | https://docs.ansible.com/ |
 | argocd | https://argo-cd.readthedocs.io/ |
 | deepagents | https://docs.langchain.com/oss/python/deepagents/overview |
-| langchain-ai | https://python.langchain.com/ |
+| langchain | https://python.langchain.com/ |
 | docker | https://docs.docker.com/ |
 | aws | https://docs.aws.amazon.com/ |
 
