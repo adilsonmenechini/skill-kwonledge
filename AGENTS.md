@@ -22,14 +22,17 @@ skill-kwonledge/
 │       └── hooks/          # Post-creation actions
 ├── examples/
 │   └── knowledge/
-│       ├── kubernetes/    # Container orchestration (DevOps)
-│       ├── terraform/     # Infrastructure as Code (IaC)
-│       ├── terragrunt/     # Terraform wrapper (IaC)
-│       ├── ansible/        # IT automation (IaC)
-│       ├── argocd/         # GitOps continuous delivery (DevOps)
-│       ├── deepagents/      # Autonomous AI agents (AI)
-│       ├── langchain-ai/  # LLM framework (AI)
-│       └── patterns/      # Reusable patterns (cross-category)
+│       ├── IaC/           # terraform, terragrunt, ansible
+│       │   ├── terraform/
+│       │   ├── terragrunt/
+│       │   └── ansible/
+│       ├── DevOps/          # kubernetes, argocd
+│       │   ├── kubernetes/
+│       │   └── argocd/
+│       ├── AI/             # deepagents, langchain-ai
+│       │   ├── deepagents/
+│       │   └── langchain-ai/
+│       └── patterns/      # cross-category patterns
 ├── AGENTS.md
 ├── .gitignore
 └── README.md

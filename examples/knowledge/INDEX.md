@@ -1,16 +1,14 @@
 ---
 name: knowledge-base
-description: Knowledge base with Obsidian-style notes covering various technical topics. Includes Kubernetes, Terraform (with Terragrunt), ArgoCD, Deep Agents, LangChain, and patterns. Each topic has concepts (explanatory), guides (how-to), references (commands), and examples.
+description: Knowledge base with Obsidian-style notes organized by category (IaC, DevOps, AI). Each category contains topics with concepts, guides, references, and examples.
 tags:
   - knowledge-base
   - documentation
   - obsidian
+  - iac
   - devops
   - ai
-  - llm
   - patterns
-  - terraform
-  - terragrunt
 aliases:
   - kb
   - knowledge
@@ -19,57 +17,58 @@ aliases:
 # Knowledge Base
 
 ## Overview
-This is the main knowledge base index containing all documented topics.
+This is the main knowledge base index, organized by category.
 
-## Topics
+## Categories
 
-### Kubernetes
-- [[kubernetes-architecture]] - Container orchestration architecture
-- [[kubernetes-pods]] - Pods concept
-- [[kubernetes-deployments]] - Deployments guide
-- [[kubernetes-services]] - Services reference
-- [[kubernetes-ingress]] - Ingress guide
-- [[kubernetes-helm]] - Helm guide
+| Category | Topics |
+|----------|-------|
+| [[IaC]] | Terraform, Terragrunt, Ansible |
+| [[DevOps]] | Kubernetes, ArgoCD |
+| [[AI]] | Deep Agents, LangChain |
+| [[Patterns]] | Cross-category patterns |
+
+## Topics by Category
+
+### IaC (Infrastructure as Code)
+- [[terraform-architecture]] - Terraform IaC
+- [[terraform-basics]] - Terraform basics
+- [[terraform-commands]] - Terraform CLI
+- [[terraform-ec2-example]] - Terraform EC2
+- [[terragrunt-overview]] - Terragrunt overview
+- [[terragrunt-commands]] - Terragrunt CLI
+- [[terragrunt-vpc-example]] - Terragrunt VPC
+- [[ansible-overview]] - Ansible overview
+- [[ansible-directory-layout]] - Ansible directory layout
+- [[ansible-commands]] - Ansible CLI
+
+### DevOps
+- [[kubernetes-architecture]] - Kubernetes architecture
+- [[kubernetes-pods]] - Pods
+- [[kubernetes-deployments]] - Deployments
+- [[kubernetes-services]] - Services
+- [[kubernetes-ingress]] - Ingress
+- [[kubernetes-helm]] - Helm
 - [[kubernetes-configmaps-secrets]] - ConfigMaps & Secrets
-- [[kubernetes-deployment-example]] - Deployment + Service example
+- [[kubernetes-deployment-example]] - K8s deployment example
+- [[argo-workflows-architecture]] - ArgoCD architecture
+- [[argocd-basics]] - ArgoCD basics
+- [[argocd-commands]] - ArgoCD CLI
+- [[argocd-application-example]] - ArgoCD app example
 
-### Terraform
-- [[terraform-architecture]] - Infrastructure as Code architecture
-- [[terraform-basics]] - Getting started with Terraform
-- [[terraform-commands]] - CLI commands reference
-- [[terraform-ec2-example]] - EC2 instance example
-
-### Terragrunt
-- [[terragrunt-overview]] - Terragrunt overview (wrapper for Terraform)
-- [[terragrunt-commands]] - Terragrunt CLI commands
-- [[terragrunt-vpc-example]] - VPC example
-
-### Ansible
-- [[ansible-overview]] - IT automation overview
-- [[ansible-directory-layout]] - Directory layout best practices
-- [[ansible-commands]] - CLI commands reference
-
-### ArgoCD
-- [[argo-workflows-architecture]] - GitOps continuous delivery architecture
-- [[argocd-basics]] - Getting started with ArgoCD
-- [[argocd-commands]] - CLI commands reference
-- [[argocd-application-example]] - Application example
-
-### Deep Agents
-- [[deepagents-architecture]] - Autonomous AI agents architecture
-- [[deepagents-basics]] - Getting started with Deep Agents
-- [[deepagents-commands]] - API reference
-- [[deepagents-quickstart]] - Quickstart example
-
-### LangChain
-- [[langchain-fundamentals]] - Core components and concepts
-- [[langchain-getting-started]] - Getting started tutorial
-- [[langchain-components]] - Components reference
-- [[langchain-lcel-example]] - LCEL chain example
+### AI
+- [[deepagents-architecture]] - Deep Agents architecture
+- [[deepagents-basics]] - Deep Agents basics
+- [[deepagents-commands]] - Deep Agents API
+- [[deepagents-quickstart]] - Deep Agents quickstart
+- [[langchain-fundamentals]] - LangChain fundamentals
+- [[langchain-getting-started]] - LangChain getting started
+- [[langchain-components]] - LangChain components
+- [[langchain-lcel-example]] - LangChain LCEL
 
 ### Patterns
 - [[clawteam]] - Agent Swarm Intelligence pattern
-- [[terragrunt-dry-configs]] - Terragrunt DRY configuration pattern
+- [[terragrunt-dry-configs]] - Terragrunt DRY pattern
 
 ## Adding New Topics
 

@@ -105,19 +105,23 @@ Type inference:
 
 **If category provided:**
 ```
-knowledge/<category>/
-└── <topic>/
+examples/knowledge/<category>/<topic>/
     ├── concepts/
     ├── guides/
     ├── references/
     ├── examples/
     └── INDEX.md
+```
+
+Example:
+- "add IaC/ansible" → `examples/knowledge/IaC/ansible/`
+- "add DevOps/kubernetes" → `examples/knowledge/DevOps/kubernetes/`
+- "add AI/langchain" → `examples/knowledge/AI/langchain-ai/`
 ```
 
 **If no category:**
 ```
-knowledge/
-└── <topic>/
+examples/knowledge/<topic>/
     ├── concepts/
     ├── guides/
     ├── references/
@@ -125,7 +129,17 @@ knowledge/
     └── INDEX.md
 ```
 
-**PARA-Inspired Organization** (optional expansion):
+Example:
+- "add ansible" → `examples/knowledge/ansible/` (if no category folder exists)
+
+**Category Folders (always use these paths):**
+```
+examples/knowledge/
+├── IaC/           # terraform, terragrunt, ansible
+├── DevOps/         # kubernetes, argocd
+├── AI/             # deepagents, langchain-ai
+└── patterns/      # cross-category patterns
+```
 - `1. Inbox/` - New notes pending organization
 - `2. Projects/` - Active knowledge projects
 - `3. Areas/` - Ongoing topics

@@ -15,19 +15,22 @@ skill-kwonledge/
 │   └── knowledge-create/     # Create validated individual notes
 │       ├── SKILL.md
 │       ├── evals/
-│       ├── templates/        # concept, pattern, runbook, architecture
+│       ├── templates/       # concept, pattern, runbook, architecture
 │       ├── validators/       # JSON Schema
 │       └── hooks/           # Post-creation actions
 ├── examples/
 │   └── knowledge/
-│       ├── kubernetes/    # Container orchestration (DevOps)
-│       ├── terraform/     # Infrastructure as Code (IaC)
-│       ├── terragrunt/     # Terraform wrapper (IaC)
-│       ├── ansible/       # IT automation (IaC)
-│       ├── argocd/         # GitOps continuous delivery (DevOps)
-│       ├── deepagents/      # Autonomous AI agents (AI)
-│       ├── langchain-ai/   # LLM framework (AI)
-│       └── patterns/       # Reusable patterns (cross-category)
+│       ├── IaC/           # terraform, terragrunt, ansible
+│       │   ├── terraform/
+│       │   ├── terragrunt/
+│       │   └── ansible/
+│       ├── DevOps/          # kubernetes, argocd
+│       │   ├── kubernetes/
+│       │   └── argocd/
+│       ├── AI/             # deepagents, langchain-ai
+│       │   ├── deepagents/
+│       │   └── langchain-ai/
+│       └── patterns/        # cross-category patterns
 ├── AGENTS.md
 ├── .gitignore
 └── README.md
@@ -87,11 +90,13 @@ skill-kwonledge/
 
 ## Quick Start
 
-### Add New Knowledge (Full Category)
+### Add New Knowledge (with Category)
 
 ```bash
-# Use knowledge-manager skill
-"add docker" → creates knowledge/docker/ with structure
+# Use knowledge-manager skill with category
+"add IaC/ansible"        → examples/knowledge/IaC/ansible/
+"add DevOps/kubernetes" → examples/knowledge/DevOps/kubernetes/
+"add AI/langchain"       → examples/knowledge/AI/langchain-ai/
 ```
 
 ### Create Individual Note (Validated)
@@ -99,7 +104,7 @@ skill-kwonledge/
 ```bash
 # Use knowledge-create skill
 "create pattern for DRY configs in Terragrunt"
-→ Creates knowledge/patterns/terragrunt-dry-configs.md
+→ Creates examples/knowledge/patterns/terragrunt-dry-configs.md
 ```
 
 ## Knowledge Note Structure
@@ -169,33 +174,20 @@ quality_score: 85
 
 ### Topics Details
 
-**Kubernetes** - Container orchestration
-- architecture, pods, deployments, services, ingress, helm, configmaps-secrets
-- Best practices: Health checks, labels, networking, resource limits
+**IaC** (Infrastructure as Code) - `examples/knowledge/IaC/`
+- Terraform: architecture, basics, commands, ec2-example
+- Terragrunt: overview, commands, vpc-example, getting-started
+- Ansible: overview, directory-layout, commands
 
-**Terraform** - Infrastructure as Code
-- architecture, basics, commands
-- Best practices: Collaborative IaC, workspace model
+**DevOps** - `examples/knowledge/DevOps/`
+- Kubernetes: architecture, pods, deployments, services, ingress, helm, configmaps-secrets
+- ArgoCD: architecture, basics, commands
 
-**Terragrunt** - Terraform wrapper
-- overview, commands, vpc-example, getting-started
-- Best practices: DRY configs, remote state, stack operations
+**AI** - `examples/knowledge/AI/`
+- Deep Agents: architecture, basics, commands, quickstart
+- LangChain: fundamentals, getting-started, components, lcel-example
 
-**Ansible** - IT automation
-- overview, directory-layout, commands
-- Best practices: Roles, inventory separation, variables
-
-**ArgoCD** - GitOps continuous delivery
-- architecture, basics, commands
-- Best practices: Separate config repo, immutable manifests
-
-**Deep Agents** - Autonomous AI agents
-- architecture, basics, commands
-
-**LangChain** - LLM framework
-- fundamentals, getting-started, components
-
-**Patterns** - Reusable Patterns
+**Patterns** - `examples/knowledge/patterns/`
 - clawteam (Agent Swarm Intelligence)
 - terragrunt-dry-configs
 
