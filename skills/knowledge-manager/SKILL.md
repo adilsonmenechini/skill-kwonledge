@@ -8,7 +8,7 @@ category: knowledge-management
 
 # Knowledge Manager
 
-Complete knowledge base management skill that handles the full knowledge lifecycle: creating new notes, organizing by type, detecting duplicates, and maintaining cross-links.
+Complete knowledge base management skill that handles the full knowledge lifecycle: creating new notes, organizing by type, detecting duplicates, and maintaining cross-links. Built on Obsidian best practices.
 
 ---
 
@@ -94,6 +94,13 @@ knowledge/
     └── INDEX.md
 ```
 
+**PARA-Inspired Organization** (optional expansion):
+- `1. Inbox/` - New notes pending organization
+- `2. Projects/` - Active knowledge projects
+- `3. Areas/` - Ongoing topics
+- `4. Resources/` - Reference materials
+- `5. Archive/` - Inactive notes
+
 ---
 
 ## Step 3: Generate Example from Documentation (CRITICAL)
@@ -109,7 +116,7 @@ Search for official documentation based on category:
 | kubernetes | https://kubernetes.io/docs/ |
 | terraform | https://www.terraform.io/docs/ |
 | argocd | https://argo-cd.readthedocs.io/ |
-| deepagents | https://docs.deepagents.ai/ |
+| deepagents | https://docs.langchain.com/oss/python/deepagents/overview |
 | langchain-ai | https://python.langchain.com/ |
 | docker | https://docs.docker.com/ |
 | aws | https://docs.aws.amazon.com/ |
@@ -172,17 +179,70 @@ Slug rules:
 ## Step 5: Create Note Content
 
 ### Frontmatter (REQUIRED)
+
+Follow Obsidian frontmatter best practices:
+
 ```yaml
 ---
-type: <concept|guide|reference>
+title: <Title>
+type: <concept|guide|reference|example>
 category: <category>
-tags: []
+tags:
+  - <tag1>
+  - <tag2>
+aliases:
+  - <alternative-name>
 status: active
 created: YYYY-MM-DD
+updated: YYYY-MM-DD
 ---
+
+**Critical YAML rules:**
+- Opening `---` must be on line 1 with no preceding blank lines
+- Use **two-space indentation** for list items (not tabs)
+- List items must use `- ` (dash + space) prefix
+- **NEVER use inline list format**: `[tag1, tag2]` is invalid
+- String values with colons should be quoted: `title: "My Note: A Subtitle"`
+- Boolean values: `true` / `false` (lowercase, no quotes)
+- Dates: ISO 8601 format `YYYY-MM-DD`
+- Wikilinks in frontmatter must be quoted: `project: "[[Project Name]]"`
+```
+
+### Standard Property Schema
+
+**Core properties (recommended for all notes):**
+
+| Property | Type | Description |
+|---------|------|-------------|
+| `title` | Text | Human-readable title (often matches filename) |
+| `type` | Text | Note type: concept, guide, reference, example |
+| `category` | Text | Knowledge category |
+| `date` / `created` | Date | Creation date (YYYY-MM-DD) |
+| `tags` | List | Topics and categories for filtering |
+| `aliases` | List | Alternative names for link suggestions |
+| `status` | Text | Current state (e.g., `draft`, `active`, `done`) |
+| `updated` | Date | Last update date |
+
+### Extended properties (optional):
+
+```yaml
+# For project-like notes
+priority: high
+due_date: YYYY-MM-DD
+stakeholders:
+  - "[[Person Name]]"
+
+# For reference notes
+source: "https://example.com/article"
+author: Author Name
+
+# For learning notes
+read_date: YYYY-MM-DD
+rating: 1-5
 ```
 
 ### Body Sections (ALL REQUIRED)
+
 ```markdown
 # <Title>
 
@@ -200,6 +260,7 @@ Practical examples and commands.
 
 ## Relationships
 - [[related-note]]
+- [[another-note]]
 
 ## Notes
 Important considerations.
@@ -210,7 +271,69 @@ Important considerations.
 
 ---
 
-## Step 5: Create/Update INDEX.md
+## Step 6: Use Obsidian Markdown Features
+
+### Wikilinks (Internal Links)
+
+```markdown
+[[Note Name]]                          Link to note by name
+[[Note Name|Display Text]]             Custom display text
+[[Note Name#Heading]]                  Link to a specific heading
+[[Note Name#^block-id]]                Link to a specific block
+```
+
+### Callouts
+
+Use callouts for highlighted information:
+
+```markdown
+> [!note]
+> This is a standard note callout.
+
+> [!warning] Custom Title
+> Callout with a custom title.
+
+> [!tip]+ Expanded by default
+> The + makes this callout expanded.
+
+> [!example]
+> Example callout.
+```
+
+Common callout types: `note`, `tip`, `warning`, `info`, `example`, `quote`, `bug`, `danger`, `success`, `failure`, `question`, `abstract`, `todo`.
+
+### Block IDs
+
+Add unique IDs for precise linking:
+
+```markdown
+This paragraph can be linked from anywhere.
+^my-block-id
+```
+
+### Tags
+
+Inline tags in body:
+
+```markdown
+#tag              # Simple tag
+#nested/tag       # Nested tag hierarchy
+#category/active # Deep nesting
+```
+
+### Embeds
+
+Embed content from other notes:
+
+```markdown
+![[Other Note]]              # Embed full note
+![[Other Note#Heading]]      # Embed section
+![[image.png]]               # Embed image
+```
+
+---
+
+## Step 7: Create/Update INDEX.md
 
 **IMPORTANT**: INDEX.md must have YAML frontmatter with name, description, and tags!
 
@@ -249,7 +372,7 @@ Brief description of this knowledge category.
 ```markdown
 ---
 name: kubernetes
-description: Kubernetes (k8s) - Container orchestration platform for automating deployment, scaling, and management of containerized applications. Covers concepts, guides, and references.
+description: Kubernetes (k8s) - Container orchestration platform...
 tags: ['kubernetes', 'containers', 'orchestration', 'devops', 'cloud-native']
 ---
 
@@ -263,7 +386,7 @@ tags: ['kubernetes', 'containers', 'orchestration', 'devops', 'cloud-native']
 
 ---
 
-## Step 6: Validate
+## Step 8: Validate
 
 Check:
 - [ ] Category folder exists
@@ -271,9 +394,12 @@ Check:
 - [ ] Note in correct subfolder
 - [ ] INDEX.md exists
 - [ ] INDEX.md has frontmatter (name, description, tags)
+- [ ] Frontmatter uses two-space indentation
+- [ ] Frontmatter uses list format for tags (not inline)
+- [ ] Dates in ISO 8601 format (YYYY-MM-DD)
 - [ ] Frontmatter complete
 - [ ] All sections present
-- [ ] At least one [[link]]
+- [ ] At least one [[wikilink]]
 - [ ] Example file created in examples/ (fetched from official documentation)
 
 ---
@@ -390,6 +516,12 @@ This note has been merged into [[primary-note]].
 6. **NEVER auto-delete** - always suggest (refactor mode)
 7. **Update INDEX** - after changes
 8. **Create examples/ folder** - always include examples/ folder in structure
+9. **Frontmatter best practices**:
+   - Two-space indentation (no tabs)
+   - List format for tags (not inline)
+   - ISO 8601 dates (YYYY-MM-DD)
+   - Quoted wikilinks in frontmatter
+10. **Use Obsidian features** - wikilinks, callouts, block IDs, embeds
 
 ---
 
@@ -404,6 +536,7 @@ knowledge/
     ├── guides/
     ├── references/
     ├── examples/
+    │   └── <category>-example.md
     └── INDEX.md
 ```
 
