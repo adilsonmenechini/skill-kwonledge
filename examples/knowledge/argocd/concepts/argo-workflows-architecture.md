@@ -1,9 +1,18 @@
 ---
+title: ArgoCD Architecture
 type: concept
 category: argocd
-tags: [gitops, continuous-delivery, kubernetes, argo]
+tags:
+  - gitops
+  - continuous-delivery
+  - kubernetes
+  - argo
+aliases:
+  - argocd-concept
+  - argo-cd-architecture
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # ArgoCD Architecture

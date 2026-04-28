@@ -1,7 +1,15 @@
 ---
 name: terraform
 description: Terraform - Infrastructure as Code tool by HashCorp for provisioning cloud and on-premises resources declaratively. Covers concepts (architecture), guides (basics), and references (commands).
-tags: ['terraform', 'iac', 'infrastructure-as-code', 'devops', 'hashicorp']
+tags:
+  - terraform
+  - iac
+  - infrastructure-as-code
+  - devops
+  - hashicorp
+aliases:
+  - terraform-iac
+  - tf
 ---
 
 # Terraform

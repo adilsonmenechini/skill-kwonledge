@@ -1,9 +1,17 @@
 ---
+title: Terraform Commands
 type: reference
 category: terraform
-tags: [commands, cli, cheatsheet]
+tags:
+  - commands
+  - cli
+  - cheatsheet
+aliases:
+  - terraform-cli
+  - tf-commands
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Terraform Commands

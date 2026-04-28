@@ -1,9 +1,17 @@
 ---
+title: Deep Agents Basics
 type: guide
 category: deepagents
-tags: [tutorial, getting-started, python]
+tags:
+  - tutorial
+  - getting-started
+  - python
+aliases:
+  - deepagents-tutorial
+  - deep-agents-basics
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Deep Agents Basics

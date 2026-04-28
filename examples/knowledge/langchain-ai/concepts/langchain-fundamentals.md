@@ -1,9 +1,19 @@
 ---
+title: LangChain Fundamentals
 type: concept
 category: langchain-ai
-tags: [llm, ai, chains, agents, langchain]
+tags:
+  - llm
+  - ai
+  - chains
+  - agents
+  - langchain
+aliases:
+  - langchain-concept
+  - lc-fundamentals
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # LangChain Fundamentals

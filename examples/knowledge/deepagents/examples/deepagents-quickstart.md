@@ -1,9 +1,18 @@
 ---
+title: Deep Agents Quickstart Example
 type: example
 category: deepagents
-tags: [example, code, sample, quickstart]
+tags:
+  - example
+  - code
+  - sample
+  - quickstart
+aliases:
+  - deepagents-example
+  - deep-agents-quickstart
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Deep Agents Quickstart Example

@@ -1,9 +1,18 @@
 ---
+title: Terraform Architecture
 type: concept
 category: terraform
-tags: [iac, infrastructure-as-code, provisioning, hashicorp]
+tags:
+  - iac
+  - infrastructure-as-code
+  - provisioning
+  - hashicorp
+aliases:
+  - terraform-iac
+  - tf-architecture
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Terraform Architecture

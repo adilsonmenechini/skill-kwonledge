@@ -1,12 +1,22 @@
 ---
+title: Terraform EC2 Example
 type: example
 category: terraform
-tags: [example, code, sample, aws, ec2]
+tags:
+  - example
+  - code
+  - sample
+  - aws
+  - ec2
+aliases:
+  - terraform-example
+  - tf-ec2-example
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
-# Terraform Example
+# Terraform EC2 Example
 
 ## Overview
 Practical example demonstrating how to create an AWS EC2 instance with Terraform, based on official documentation.

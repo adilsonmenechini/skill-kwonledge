@@ -1,7 +1,16 @@
 ---
 name: knowledge-base
 description: Knowledge base with Obsidian-style notes covering various technical topics. Includes Kubernetes, Terraform, ArgoCD, Deep Agents, LangChain and more. Each topic has concepts (explanatory), guides (how-to), references (commands), and examples.
-tags: ['knowledge-base', 'documentation', 'obsidian', 'devops', 'ai', 'llm']
+tags:
+  - knowledge-base
+  - documentation
+  - obsidian
+  - devops
+  - ai
+  - llm
+aliases:
+  - kb
+  - knowledge
 ---
 
 # Knowledge Base

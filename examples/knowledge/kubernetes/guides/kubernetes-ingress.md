@@ -1,9 +1,18 @@
 ---
+title: Kubernetes Ingress
 type: guide
 category: kubernetes
-tags: [ingress, routing, http, load-balancing]
+tags:
+  - ingress
+  - routing
+  - http
+  - load-balancing
+aliases:
+  - k8s ingress
+  - ingress-controller
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes Ingress
@@ -20,7 +29,7 @@ Ingress exposes services to the outside world:
 
 ## Content
 
-### Ingress Resource
+### Ingress Specification
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -51,7 +60,7 @@ spec:
               number: 80
 ```
 
-### TLS Termination
+### TLS/SSL
 
 ```yaml
 spec:
@@ -59,74 +68,61 @@ spec:
   - hosts:
     - example.com
     secretName: tls-secret
-  rules:
-  - host: example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web-service
-            port:
-              number: 80
-```
-
-## Usage
-
-### Common Annotations
-
-```yaml
-annotations:
-  # Rewrite paths
-  nginx.ingress.kubernetes.io/rewrite-target: /api/$2
-  
-  # Custom max body size
-  nginx.ingress.kubernetes.io/proxy-body-size: "10m"
-  
-  # Rate limiting
-  nginx.ingress.kubernetes.io/limit-connections: "10"
-  nginx.ingress.kubernetes.io/limit-rps: "5"
-  
-  # Redirect HTTP to HTTPS
-  nginx.ingress.kubernetes.io/ssl-redirect: "true"
 ```
 
 ### Commands
 
 ```bash
-# Create ingress
-kubectl apply -f ingress.yaml
-
 # List ingresses
 kubectl get ingress
 
 # Describe ingress
 kubectl describe ingress my-ingress
 
-# Check ingress controller
-kubectl get pods -n ingress-nginx
+# Apply ingress
+kubectl apply -f ingress.yaml
+
+# Delete ingress
+kubectl delete ingress my-ingress
 ```
 
-### Ingress Controllers
+## Usage Examples
 
-| Controller | Provider |
-|-----------|----------|
-| nginx-ingress | Community |
-| ingress-nginx | Kubernetes |
-| AWS ALB | AWS |
-| GCE | Google Cloud |
-| Traefik | Containous |
+### Path-based Routing
+
+```yaml
+- path: /users
+  pathType: Prefix
+  backend:
+    service:
+      name: users-service
+      port:
+        number: 80
+```
+
+### Host-based Routing
+
+```yaml
+- host: api.example.com
+  http:
+    paths:
+    - path: /
+      backend:
+        service:
+          name: api-service
+```
 
 ## Relationships
 - [[kubernetes-services]]
 - [[kubernetes-architecture]]
 
 ## Notes
-- Requires Ingress Controller deployment
-- Path handling varies by controller
-- Use annotations for controller-specific settings
+> [!warning]
+> You need an Ingress controller (nginx, traefik, etc.) installed
+
+- Configure TLS for production
+- Use `pathType: ImplementationSpecific` for nginx
 
 ## References
 - [Ingress Documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/)
-- [ingress-nginx](https://kubernetes.github.io/ingress-nginx/)
+- [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)

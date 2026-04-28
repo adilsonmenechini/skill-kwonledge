@@ -1,9 +1,18 @@
 ---
+title: Kubernetes Helm
 type: guide
 category: kubernetes
-tags: [helm, packaging, charts, package-manager]
+tags:
+  - helm
+  - packaging
+  - charts
+  - package-manager
+aliases:
+  - helm-charts
+  - helm-guide
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes Helm

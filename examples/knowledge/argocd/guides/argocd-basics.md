@@ -1,9 +1,18 @@
 ---
+title: ArgoCD Basics
 type: guide
 category: argocd
-tags: [gitops, tutorial, getting-started, kubernetes]
+tags:
+  - gitops
+  - tutorial
+  - getting-started
+  - kubernetes
+aliases:
+  - argocd-tutorial
+  - argocd-getting-started
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # ArgoCD Basics

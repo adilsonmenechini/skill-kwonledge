@@ -1,12 +1,21 @@
 ---
+title: Kubernetes Deployment Example
 type: example
 category: kubernetes
-tags: [example, code, sample, deployment]
+tags:
+  - example
+  - code
+  - sample
+  - deployment
+aliases:
+  - k8s-example
+  - deployment-example
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
-# Kubernetes Example
+# Kubernetes Deployment Example
 
 ## Overview
 Practical example demonstrating how to create a Kubernetes Deployment with Service, based on official documentation.

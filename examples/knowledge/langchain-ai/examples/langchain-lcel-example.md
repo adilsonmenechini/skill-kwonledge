@@ -1,12 +1,22 @@
 ---
+title: LangChain LCEL Example
 type: example
 category: langchain-ai
-tags: [example, code, sample, lcel, chain]
+tags:
+  - example
+  - code
+  - sample
+  - lcel
+  - chain
+aliases:
+  - langchain-example
+  - lc-example
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
-# LangChain Example
+# LangChain LCEL Example
 
 ## Overview
 Practical example demonstrating how to create a chain using LCEL (LangChain Expression Language), based on official documentation.

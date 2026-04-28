@@ -1,9 +1,18 @@
 ---
+title: Kubernetes ConfigMaps and Secrets
 type: reference
 category: kubernetes
-tags: [config, secrets, environment, configuration]
+tags:
+  - config
+  - secrets
+  - environment
+  - configuration
+aliases:
+  - configmaps
+  - k8s-secrets
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes ConfigMaps and Secrets

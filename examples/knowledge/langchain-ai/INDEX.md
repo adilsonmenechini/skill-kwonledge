@@ -1,7 +1,16 @@
 ---
 name: langchain-ai
 description: LangChain - Framework for building applications with large language models (LLMs). Provides abstractions for chains, agents, memory, and tools for LLM-powered applications.
-tags: ['langchain', 'llm', 'ai', 'chains', 'agents', 'machine-learning']
+tags:
+  - langchain
+  - llm
+  - ai
+  - chains
+  - agents
+  - machine-learning
+aliases:
+  - langchain
+  - lc
 ---
 
 # LangChain

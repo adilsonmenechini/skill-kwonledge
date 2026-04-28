@@ -1,9 +1,18 @@
 ---
+title: Kubernetes Pods
 type: concept
 category: kubernetes
-tags: [pods, containers, workload, basic-unit]
+tags:
+  - pods
+  - containers
+  - workload
+  - basic-unit
+aliases:
+  - k8s pods
+  - pod-concept
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes Pods
@@ -89,7 +98,9 @@ kubectl delete pod my-pod
 - [[kubernetes-deployments]]
 
 ## Notes
-- Pods are ephemeral — use Deployments for production
+> [!warning]
+> Pods are ephemeral — use Deployments for production
+
 - Multi-container Pods should be rare
 - Use init containers for setup tasks
 

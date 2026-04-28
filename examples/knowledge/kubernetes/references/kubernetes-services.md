@@ -1,9 +1,18 @@
 ---
+title: Kubernetes Services
 type: reference
 category: kubernetes
-tags: [networking, services, load-balancing, service-types]
+tags:
+  - networking
+  - services
+  - load-balancing
+  - service-types
+aliases:
+  - k8s service
+  - service-reference
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes Services

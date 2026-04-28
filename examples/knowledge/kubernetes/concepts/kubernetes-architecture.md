@@ -1,9 +1,18 @@
 ---
+title: Kubernetes Architecture
 type: concept
 category: kubernetes
-tags: [architecture, orchestration, containers, control-plane]
+tags:
+  - architecture
+  - orchestration
+  - containers
+  - control-plane
+aliases:
+  - k8s architecture
+  - kubernetes-components
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Kubernetes Architecture
@@ -49,29 +58,8 @@ kubectl get pods -A
 # Apply a deployment
 kubectl apply -f deployment.yaml
 
-# Scale a deployment
-kubectl scale deployment/my-app --replicas=3
-```
-
-### Architecture Diagram
-```
-┌─────────────────────────────────────────────────┐
-│                 Control Plane                   │
-│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌───────┐  │
-│  │ API     │ │Scheduler│ │Controller│ │ etcd │  │
-│  │ Server  │ │         │ │ Manager  │ │       │  │
-│  └─────────┘ └─────────┘ └─────────┘ └───────┘  │
-└─────────────────────────────────────────────────┘
-                        │
-┌─────────────────────────────────────────────────┐
-│                   Worker Nodes                   │
-│  ┌───────────┐  ┌───────────┐  ┌───────────┐   │
-│  │  Node 1   │  │  Node 2   │  │  Node 3   │   │
-│  │ ┌─────┐   │  │ ┌─────┐   │  │ ┌─────┐   │   │
-│  │ │ kubelet│  │  │ │ kubelet│  │ │ │ kubelet│  │   │
-│  │ └─────┘   │  │ └─────┘   │  │ └─────┘   │   │
-│  └───────────┘  └───────────┘  └───────────┘   │
-└─────────────────────────────────────────────────┘
+# Scale deployment
+kubectl scale deployment my-app --replicas=3
 ```
 
 ## Relationships
@@ -80,10 +68,10 @@ kubectl scale deployment/my-app --replicas=3
 - [[kubernetes-services]]
 
 ## Notes
-- Kubernetes uses a declarative configuration model
-- The desired state is stored in etcd and the control plane works to achieve that state
-- Nodes communicate with the control plane via the kubelet agent
+- Control plane components typically run on dedicated nodes
+- Worker nodes can be physical servers or VMs
+- etcd is critical - always backup regularly
 
 ## References
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
-- [Kubernetes Architecture Components](https://kubernetes.io/docs/concepts/overview/components/)
+- [Kubernetes Architecture](https://kubernetes.io/docs/concepts/overview/)

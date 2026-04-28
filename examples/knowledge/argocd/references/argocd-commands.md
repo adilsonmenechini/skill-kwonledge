@@ -1,9 +1,17 @@
 ---
+title: ArgoCD Commands
 type: reference
 category: argocd
-tags: [commands, cli, cheatsheet]
+tags:
+  - commands
+  - cli
+  - cheatsheet
+aliases:
+  - argocd-cli
+  - argocd-reference
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # ArgoCD Commands

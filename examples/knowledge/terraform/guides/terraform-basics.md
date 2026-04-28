@@ -1,9 +1,18 @@
 ---
+title: Terraform Basics
 type: guide
 category: terraform
-tags: [getting-started, tutorial, basics, hcl]
+tags:
+  - getting-started
+  - tutorial
+  - basics
+  - hcl
+aliases:
+  - terraform-tutorial
+  - tf-basics
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Terraform Basics

@@ -1,7 +1,16 @@
 ---
 name: deepagents
 description: Deep Agents - Agent harness built on LangChain/LangGraph for building autonomous AI agents. Provides planning, filesystem tools, subagent spawning, and long-term memory. See https://docs.langchain.com/oss/python/deepagents/overview
-tags: ['deepagents', 'ai-agents', 'autonomous-agents', 'langchain', 'langgraph', 'agent-harness']
+tags:
+  - deepagents
+  - ai-agents
+  - autonomous-agents
+  - langchain
+  - langgraph
+  - agent-harness
+aliases:
+  - deep-agents
+  - langchain-deep-agents
 ---
 
 # Deep Agents

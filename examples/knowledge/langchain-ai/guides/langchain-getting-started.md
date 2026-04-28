@@ -1,9 +1,17 @@
 ---
+title: LangChain Getting Started
 type: guide
 category: langchain-ai
-tags: [tutorial, getting-started, python]
+tags:
+  - tutorial
+  - getting-started
+  - python
+aliases:
+  - langchain-tutorial
+  - lc-getting-started
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # LangChain Getting Started

@@ -1,9 +1,19 @@
 ---
+title: Deep Agents Architecture
 type: concept
 category: deepagents
-tags: [ai-agents, orchestration, autonomous-agents, langchain, langgraph]
+tags:
+  - ai-agents
+  - orchestration
+  - autonomous-agents
+  - langchain
+  - langgraph
+aliases:
+  - deepagents-concept
+  - deep-agents-architecture
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Deep Agents Architecture

@@ -1,7 +1,15 @@
 ---
 name: kubernetes
 description: Kubernetes (k8s) - Container orchestration platform for automating deployment, scaling, and management of containerized applications. Covers concepts (architecture, pods), guides (deployments, ingress, helm), and references (services, configmaps, secrets).
-tags: ['kubernetes', 'containers', 'orchestration', 'devops', 'cloud-native']
+tags:
+  - kubernetes
+  - containers
+  - orchestration
+  - devops
+  - cloud-native
+aliases:
+  - k8s
+  - kubernetes-k8s
 ---
 
 # Kubernetes

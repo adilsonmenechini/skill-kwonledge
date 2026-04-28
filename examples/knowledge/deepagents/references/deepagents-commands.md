@@ -1,9 +1,17 @@
 ---
+title: Deep Agents Reference
 type: reference
 category: deepagents
-tags: [commands, api, cheatsheet]
+tags:
+  - commands
+  - api
+  - cheatsheet
+aliases:
+  - deepagents-api
+  - deep-agents-reference
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # Deep Agents Reference

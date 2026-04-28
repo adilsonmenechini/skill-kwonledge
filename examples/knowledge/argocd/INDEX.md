@@ -1,7 +1,15 @@
 ---
 name: argocd
 description: ArgoCD - GitOps continuous delivery tool for Kubernetes. Declarative, automated deployment ensuring cluster state matches Git. Covers concepts (architecture), guides (basics), and references (commands).
-tags: ['argocd', 'gitops', 'continuous-delivery', 'kubernetes', 'devops']
+tags:
+  - argocd
+  - gitops
+  - continuous-delivery
+  - kubernetes
+  - devops
+aliases:
+  - argocd-gitops
+  - argo
 ---
 
 # ArgoCD

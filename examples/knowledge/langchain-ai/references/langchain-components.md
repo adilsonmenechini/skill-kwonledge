@@ -1,9 +1,17 @@
 ---
+title: LangChain Components
 type: reference
 category: langchain-ai
-tags: [components, api, cheatsheet]
+tags:
+  - components
+  - api
+  - cheatsheet
+aliases:
+  - langchain-api
+  - lc-components
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
 # LangChain Components

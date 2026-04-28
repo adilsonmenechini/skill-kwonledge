@@ -1,12 +1,22 @@
 ---
+title: ArgoCD Application Example
 type: example
 category: argocd
-tags: [example, code, sample, application, gitops]
+tags:
+  - example
+  - code
+  - sample
+  - application
+  - gitops
+aliases:
+  - argocd-example
+  - application-example
 status: active
 created: 2026-04-27
+updated: 2026-04-27
 ---
 
-# ArgoCD Example
+# ArgoCD Application Example
 
 ## Overview
 Practical example demonstrating how to create an ArgoCD Application with auto-sync, based on official documentation.
