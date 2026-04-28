@@ -9,22 +9,75 @@ This is a **knowledge base repository** containing Obsidian-style knowledge note
 ```
 skill-kwonledge/
 ├── skills/
-│   └── knowledge-manager/   # Unified skill (create + refactor)
-│       ├── SKILL.md           # Main skill
-│       ├── evals/            # Test cases
-│       ├── scripts/           # Automation scripts
-│       └── resources/         # Templates
+│   ├── knowledge-manager/   # Create full category structures
+│   │   ├── SKILL.md
+│   │   ├── evals/
+│   │   ├── scripts/          # deduplicate.py, update_schema.py
+│   │   └── resources/
+│   └── knowledge-create/     # Create validated individual notes
+│       ├── SKILL.md
+│       ├── evals/
+│       ├── templates/        # concept, pattern, runbook, architecture
+│       ├── validators/        # JSON Schema
+│       └── hooks/            # Post-creation actions
 ├── examples/
 │   └── knowledge/
 │       ├── kubernetes/      # Container orchestration
-│       ├── terraform/      # Infrastructure as Code
-│       ├── argocd/         # GitOps continuous delivery
-│       ├── deepagents/     # Autonomous AI agents
-│       └── langchain-ai/  # LLM framework
-├── AGENTS.md           # Agent instructions (this file)
+│       ├── terraform/       # Infrastructure as Code
+│       ├── argocd/          # GitOps continuous delivery
+│       ├── deepagents/       # Autonomous AI agents
+│       ├── langchain-ai/    # LLM framework
+│       └── patterns/        # Reusable patterns
+├── AGENTS.md
 ├── .gitignore
 └── README.md
 ```
+
+---
+
+## Skills Overview
+
+### knowledge-manager
+
+Create full category structures.
+
+**Trigger Phrases:**
+- "add [topic]" → e.g., "add kubernetes", "add docker"
+- "document [subject]"
+- "create knowledge"
+
+**Refactor Mode:**
+- "find duplicates"
+- "clean up"
+- "deduplicate"
+
+**Output:** Full folder structure with concepts/, guides/, references/, examples/
+
+### knowledge-create
+
+Create validated individual notes with templates.
+
+**Trigger Phrases:**
+- "create pattern for [topic]"
+- "create runbook for [topic]"
+- "create concept about [topic]"
+- "document [subject] with pattern"
+
+**Output:** Single .md file with:
+- Valid frontmatter
+- Template applied (concept/pattern/runbook/architecture)
+- Related links
+
+---
+
+## When to Use Each Skill
+
+| Use Case | Skill |
+|----------|-------|
+| "add kubernetes" | knowledge-manager |
+| "create pattern for DRY configs" | knowledge-create |
+| "find duplicates" | knowledge-manager |
+| "create runbook for incident response" | knowledge-create |
 
 ---
 

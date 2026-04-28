@@ -1,6 +1,6 @@
 ---
 name: knowledge-base
-description: Knowledge base with Obsidian-style notes covering various technical topics. Includes Kubernetes, Terraform, ArgoCD, Deep Agents, LangChain and more. Each topic has concepts (explanatory), guides (how-to), references (commands), and examples.
+description: Knowledge base with Obsidian-style notes covering various technical topics. Includes Kubernetes, Terraform (with Terragrunt), ArgoCD, Deep Agents, LangChain, and patterns. Each topic has concepts (explanatory), guides (how-to), references (commands), and examples.
 tags:
   - knowledge-base
   - documentation
@@ -8,6 +8,7 @@ tags:
   - devops
   - ai
   - llm
+  - patterns
 aliases:
   - kb
   - knowledge
@@ -35,6 +36,7 @@ This is the main knowledge base index containing all documented topics.
 - [[terraform-basics]] - Getting started with Terraform
 - [[terraform-commands]] - CLI commands reference
 - [[terraform-ec2-example]] - EC2 instance example
+- [[terragrunt-overview]] - Terragrunt overview
 
 ### ArgoCD
 - [[argo-workflows-architecture]] - GitOps continuous delivery architecture
@@ -54,14 +56,22 @@ This is the main knowledge base index containing all documented topics.
 - [[langchain-components]] - Components reference
 - [[langchain-lcel-example]] - LCEL chain example
 
+### Patterns
+- [[terragrunt-dry-configs]] - Terragrunt DRY configuration pattern
+
 ## Adding New Topics
 
-To add a new topic, use format: "add [topic]" or "document [subject]"
+**For full category structure:**
+- Use `knowledge-manager` skill: "add [topic]"
+
+**For individual validated notes:**
+- Use `knowledge-create` skill: "create pattern for X"
 
 Example:
 - "add docker" → creates `knowledge/docker/` structure
 - "document AWS" → creates `knowledge/aws/` structure
+- "create pattern for caching" → creates `knowledge/patterns/caching.md`
 
 ---
 
-*Last updated: 2026-04-27*
+*Last updated: 2026-04-28*

@@ -134,9 +134,10 @@ id = {domain}.{type}.{slug}
 - Create directory if not exists
 - Write file with UTF-8 encoding
 
-### Step 8: Update Index
-- Add entry to category INDEX.md
-- Add related backlinks
+### Step 8: Update Index (CRITICAL)
+- Add entry to **category INDEX.md** (e.g., `knowledge/terraform/INDEX.md`)
+- Add entry to **main INDEX.md** (`examples/knowledge/INDEX.md`)
+- Add related backlinks if needed
 
 ## 🔁 Post-actions
 
@@ -156,7 +157,8 @@ Before completing, verify:
 - [ ] `summary` is 1-2 sentences
 - [ ] At least 1 `[[related]]` link exists
 - [ ] File saved in correct folder
-- [ ] INDEX.md updated
+- [ ] Category INDEX.md updated
+- [ ] Main INDEX.md updated
 
 ## 📚 Templates
 
