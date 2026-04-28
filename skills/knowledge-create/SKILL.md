@@ -142,9 +142,19 @@ id = {domain}.{type}.{slug}
 - Write file with UTF-8 encoding
 
 ### Step 8: Update Index (CRITICAL)
-- Add entry to **category INDEX.md** (e.g., `knowledge/terraform/INDEX.md`)
+
+**For patterns (cross-category):**
+- Add entry to `examples/knowledge/patterns/INDEX.md`
+
+**For topics in categories:**
+- Add entry to **category INDEX.md** (e.g., `examples/knowledge/IaC/terraform/INDEX.md`)
 - Add entry to **main INDEX.md** (`examples/knowledge/INDEX.md`)
-- Add related backlinks if needed
+
+**Folder Mapping:**
+| Type | Path |
+|------|------|
+| pattern | `examples/knowledge/patterns/` |
+| concept/runbook/architecture | `examples/knowledge/<category>/<topic>/` |
 
 ## 🔁 Post-actions
 
