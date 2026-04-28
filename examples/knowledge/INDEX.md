@@ -30,58 +30,27 @@ This is the main knowledge base index, organized by category.
 
 ## Topics by Category
 
-### IaC (Infrastructure as Code)
-- [[terraform-architecture]] - Terraform IaC
-- [[terraform-basics]] - Terraform basics
-- [[terraform-commands]] - Terraform CLI
-- [[terraform-ec2-example]] - Terraform EC2
-- [[terragrunt-overview]] - Terragrunt overview
-- [[terragrunt-commands]] - Terragrunt CLI
-- [[terragrunt-vpc-example]] - Terragrunt VPC
-- [[ansible-overview]] - Ansible overview
-- [[ansible-directory-layout]] - Ansible directory layout
-- [[ansible-commands]] - Ansible CLI
+For detailed topics in each category, see the category INDEX.md:
 
-### DevOps
-- [[kubernetes-architecture]] - Kubernetes architecture
-- [[kubernetes-pods]] - Pods
-- [[kubernetes-deployments]] - Deployments
-- [[kubernetes-services]] - Services
-- [[kubernetes-ingress]] - Ingress
-- [[kubernetes-helm]] - Helm
-- [[kubernetes-configmaps-secrets]] - ConfigMaps & Secrets
-- [[kubernetes-deployment-example]] - K8s deployment example
-- [[argo-workflows-architecture]] - ArgoCD architecture
-- [[argocd-basics]] - ArgoCD basics
-- [[argocd-commands]] - ArgoCD CLI
-- [[argocd-application-example]] - ArgoCD app example
-
-### AI
-- [[deepagents-architecture]] - Deep Agents architecture
-- [[deepagents-basics]] - Deep Agents basics
-- [[deepagents-commands]] - Deep Agents API
-- [[deepagents-quickstart]] - Deep Agents quickstart
-- [[langchain-fundamentals]] - LangChain fundamentals
-- [[langchain-getting-started]] - LangChain getting started
-- [[langchain-components]] - LangChain components
-- [[langchain-lcel-example]] - LangChain LCEL
-
-### Patterns
-- [[clawteam]] - Agent Swarm Intelligence pattern
-- [[terragrunt-dry-configs]] - Terragrunt DRY pattern
+- [[IaC/INDEX]] - Terraform, Terragrunt, Ansible
+- [[DevOps/INDEX]] - Kubernetes, ArgoCD
+- [[AI/INDEX]] - Deep Agents, LangChain
+- [[patterns/INDEX]] - Cross-category patterns
 
 ## Adding New Topics
 
-**For full category structure:**
-- Use `knowledge-manager` skill: "add [topic]"
+**For full category structure, use knowledge-manager:**
+- "add IaC/ansible" → `examples/knowledge/IaC/ansible/`
+- "add DevOps/kubernetes" → `examples/knowledge/DevOps/kubernetes/`
+- "add AI/langchain" → `examples/knowledge/AI/langchain-ai/`
 
-**For individual validated notes:**
-- Use `knowledge-create` skill: "create pattern for X"
+**For patterns (cross-category):**
+- "create pattern for X" → `examples/knowledge/patterns/`
 
-Example:
-- "add docker" → creates `knowledge/docker/` structure
-- "document AWS" → creates `knowledge/aws/` structure
-- "create pattern for caching" → creates `knowledge/patterns/caching.md`
+**Examples:**
+- "add IaC/terragrunt" → creates new Terragrunt knowledge in IaC/
+- "add DevOps/argocd" → creates new ArgoCD knowledge in DevOps/
+- "create pattern for blue-green" → creates cross-category pattern
 
 ---
 
