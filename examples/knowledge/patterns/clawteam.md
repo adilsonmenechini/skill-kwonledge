@@ -1,17 +1,17 @@
 ---
-id: deepagents.clawteam
+id: patterns.clawteam-swarm
 title: ClawTeam - Agent Swarm Intelligence
-type: concept
-domain: deepagents
+type: pattern
+domain: patterns
 tags:
-  - deepagents
+  - patterns
   - ai-agents
   - swarm
   - multi-agent
   - orchestration
   - clawteam
   - hku
-summary: ClawTeam enables AI agents to form swarms, delegate tasks, and work together. Human provides the goal, and the Agent Team orchestrates everything else - spawning sub-agents, managing dependencies, and coordinating execution.
+summary: Pattern for enabling AI agents to form collaborative swarms that self-organize, delegate tasks, and coordinate execution without human intervention.
 related:
   - [[deepagents-architecture]]
   - [[deepagents-basics]]

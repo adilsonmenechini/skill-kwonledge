@@ -22,7 +22,6 @@ This category covers Deep Agents - an "agent harness" built on LangChain and Lan
 
 ### Concepts
 - [[deepagents-architecture]] - Core architecture, create_deep_agent, LangGraph runtime, providers
-- [[clawteam]] - Agent Swarm Intelligence (HKUDS)
 
 ### Guides
 - [[deepagents-basics]] - Getting started, installation, first agent, capabilities
