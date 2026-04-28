@@ -1,4 +1,5 @@
 ---
+id: terraform.basics
 title: Terraform Basics
 type: guide
 category: terraform
@@ -7,18 +8,23 @@ tags:
   - tutorial
   - basics
   - hcl
+  - workspaces
+  - collaborative-iac
 aliases:
   - terraform-tutorial
   - tf-basics
 status: active
+version: "1.0.0"
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
+confidence: high
+source: docs
 ---
 
 # Terraform Basics
 
 ## Overview
-A practical guide to getting started with Terraform - from installation to your first infrastructure deployment.
+A practical guide to getting started with Terraform - from installation to your first infrastructure deployment using collaborative Infrastructure as Code (IaC) practices.
 
 ## Purpose
 Learn Terraform fundamentals:
@@ -26,6 +32,7 @@ Learn Terraform fundamentals:
 - Writing your first configuration
 - Understanding HCL syntax
 - Running basic commands
+- **Collaborative IaC workflow** (recommended practices)
 
 ## Content
 
@@ -80,6 +87,40 @@ output "instance_ip" {
 | Attribute | `ami = "..."` | Set value |
 | Type | `string`, `number`, `bool`, `list`, `map` | Validate data |
 | Expression | `var.name`, `aws_instance.example.id` | Reference values |
+
+### Collaborative IaC Workflow (Recommended)
+
+The recommended approach is **collaborative infrastructure as code**, using HCP Terraform to manage boundaries between teams, roles, and deployment tiers.
+
+#### Four Personas
+
+| Persona | Responsibility | Access |
+|---------|---------------|--------|
+| **Central IT** | Define practices, enforce policy, maintain shared services | All workspaces |
+| **Organization Architect** | Define global infrastructure division and delegation | All workspaces |
+| **Workspace Owner** | Owns workspaces, manages change lifecycle (dev→prod) | Production approval |
+| **Workspace Contributor** | Submit changes, can modify dev/staging | Dev/UAT/Staging |
+
+#### Workspace Structure
+
+**One workspace per environment per configuration**:
+```
+billing-app-dev
+billing-app-stage
+billing-app-prod
+networking-dev
+networking-stage
+networking-prod
+```
+
+**Pattern**: `Terraform configurations × environments = workspaces`
+
+#### Delegation Model
+
+- Teams can start runs and edit variables in dev/staging
+- Owners approve production changes after review
+- Central IT administers permissions on all workspaces
+- No access = no visibility
 
 ### Variables and Outputs
 
@@ -159,7 +200,11 @@ terraform apply -var-file=prod.tfvars
 - Always run `terraform plan` before `apply`
 - Use `-auto-approve` for CI/CD pipelines
 - Keep state secure - never commit to version control
+- **Follow collaborative IaC**: one workspace per environment per configuration
+- Use HCP Terraform for team collaboration and access control
+- Delegate ownership to enable parallel development
 
 ## References
+- [Terraform Recommended Practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices)
 - [Terraform Tutorial](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code)
 - [Terraform Language Documentation](https://www.terraform.io/docs/language/index.html)

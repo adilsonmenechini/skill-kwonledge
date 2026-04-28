@@ -12,6 +12,10 @@ aliases:
 status: active
 created: 2026-04-27
 updated: 2026-04-27
+id: terraform.commands
+version: "1.0.0"
+confidence: high
+source: docs
 ---
 
 # Terraform Commands

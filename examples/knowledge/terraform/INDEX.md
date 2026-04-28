@@ -1,12 +1,15 @@
 ---
 name: terraform
-description: Terraform - Infrastructure as Code tool by HashCorp for provisioning cloud and on-premises resources declaratively. Covers concepts (architecture), guides (basics), and references (commands).
+description: Terraform - Infrastructure as Code tool by HashiCorp for provisioning cloud and on-premises resources declaratively using collaborative IaC workflow. Covers concepts (architecture), guides (basics), and references (commands).
 tags:
   - terraform
   - iac
   - infrastructure-as-code
   - devops
   - hashicorp
+  - collaborative-iac
+  - workspaces
+  - hcp-terraform
 aliases:
   - terraform-iac
   - tf
@@ -15,15 +18,32 @@ aliases:
 # Terraform
 
 ## Overview
-This category covers Terraform - Infrastructure as Code tool by HashCorp for provisioning cloud and on-premises resources declaratively.
+This category covers Terraform - Infrastructure as Code tool by HashiCorp for provisioning cloud and on-premises resources declaratively using the **collaborative infrastructure as code** workflow.
 
-## Notes
+## Recommended Practices
+
+Based on [HashiCorp Recommended Practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices):
+
+### Collaborative IaC Workflow
+
+1. **One workspace per environment per configuration**
+   - Pattern: `Terraform configurations × environments = workspaces`
+   - Example: `billing-app-dev`, `billing-app-prod`
+
+2. **Four Personas**:
+   - Central IT: Define practices, enforce policy
+   - Organization Architect: Define infrastructure division
+   - Workspace Owner: Manage dev→prod lifecycle
+   - Workspace Contributor: Submit changes to dev/staging
+
+3. **Delegation Model**
+   - Teams own specific workspaces
+   - Use access control to regulate production changes
+   - Enable parallel development
 
 ### Concepts
-- [[terraform-architecture]] - Core architecture, providers, resources, state management
-
-### Guides
-- [[terraform-basics]] - Getting started, installation, first configuration
+- [[terraform-architecture]] - Core architecture, providers, resources, workspaces, collaborative IaC
+- [[terraform-basics]] - Getting started, collaborative workflow, workspace structure
 
 ### References
 - [[terraform-commands]] - CLI commands, workflow, options
@@ -33,4 +53,4 @@ This category covers Terraform - Infrastructure as Code tool by HashCorp for pro
 
 ---
 
-*Last updated: 2026-04-27*
+*Last updated: 2026-04-28*

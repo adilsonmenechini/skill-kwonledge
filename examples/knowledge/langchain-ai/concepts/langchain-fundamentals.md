@@ -14,6 +14,10 @@ aliases:
 status: active
 created: 2026-04-27
 updated: 2026-04-27
+id: langchain-ai.langchain-fundamentals
+version: "1.0.0"
+confidence: high
+source: docs
 ---
 
 # LangChain Fundamentals

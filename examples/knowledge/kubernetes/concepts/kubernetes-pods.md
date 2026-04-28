@@ -13,6 +13,10 @@ aliases:
 status: active
 created: 2026-04-27
 updated: 2026-04-27
+id: kubernetes.pods
+version: "1.0.0"
+confidence: high
+source: docs
 ---
 
 # Kubernetes Pods

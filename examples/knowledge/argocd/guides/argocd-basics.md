@@ -1,4 +1,5 @@
 ---
+id: argocd.basics
 title: ArgoCD Basics
 type: guide
 category: argocd
@@ -7,12 +8,16 @@ tags:
   - tutorial
   - getting-started
   - kubernetes
+  - best-practices
 aliases:
   - argocd-tutorial
   - argocd-getting-started
 status: active
+version: "1.0.0"
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
+confidence: high
+source: docs
 ---
 
 # ArgoCD Basics
@@ -26,6 +31,31 @@ Learn ArgoCD fundamentals:
 - Creating your first Application
 - Understanding sync policies
 - Managing deployments
+
+## Best Practices (from ArgoCD Documentation)
+
+Based on [ArgoCD Best Practices](https://argo-cd.readthedocs.io/en/stable/user-guide/best_practices/):
+
+### 1. Separate Config from Source Code
+- Use a **separate Git repository** for Kubernetes manifests
+- Clean separation: app code ≠ config code
+- Cleaner audit log for changes
+- Multiple repos can deploy as single unit
+- **Separation of access**: Developers ≠ Production push access
+
+### 2. Leave Room for Imperativeness
+- Don't track everything in Git (e.g., HPA-controlled replicas)
+- Allow automation to manage dynamic values
+- Example: Don't include `replicas` if using HorizontalPodAutoscaler
+
+### 3. Ensure Manifests At Git Revisions Are Truly Immutable
+- Use **Git tags or commit SHA**, not HEAD
+- Bad: `github.com/org/repo//manifests`
+- Good: `github.com/org/repo//manifests?ref=v1.0.0`
+
+### 4. Alternative: App of Apps Pattern
+- Use ApplicationSet for multi-cluster deployments
+- Progressive sync for controlled rollouts
 
 ## Content
 

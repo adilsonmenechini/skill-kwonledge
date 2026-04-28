@@ -210,18 +210,88 @@ updated: YYYY-MM-DD
 
 ### Standard Property Schema
 
-**Core properties (recommended for all notes):**
+**Core properties (required for all notes):**
 
 | Property | Type | Description |
-|---------|------|-------------|
+|----------|------|-------------|
 | `title` | Text | Human-readable title (often matches filename) |
 | `type` | Text | Note type: concept, guide, reference, example |
 | `category` | Text | Knowledge category |
-| `date` / `created` | Date | Creation date (YYYY-MM-DD) |
+| `created` | Date | Creation date (YYYY-MM-DD) |
+| `updated` | Date | Last update date (YYYY-MM-DD) |
 | `tags` | List | Topics and categories for filtering |
 | `aliases` | List | Alternative names for link suggestions |
 | `status` | Text | Current state (e.g., `draft`, `active`, `done`) |
-| `updated` | Date | Last update date |
+
+**Schema properties (required for formal contracts):**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `id` | Text | Unique ID (ex: `kubernetes.pods`) |
+| `version` | Text | Semantic version (e.g., `1.0.0`) |
+| `inputs` | List | Expected inputs for knowledge usage |
+| `outputs` | List | Expected outputs from knowledge |
+| `dependencies` | List | Related knowledge notes |
+| `quality_score` | Number | Quality score (0-100) |
+| `confidence` | Text | Confidence level (high/medium/low) |
+| `source` | Text | Source type (docs/internal/external) |
+
+```yaml
+---
+id: kubernetes.pods
+title: Kubernetes Pods
+type: concept
+category: kubernetes
+tags:
+  - containers
+  - pods
+aliases:
+  - k8s pods
+status: active
+version: "1.0.0"
+created: 2026-04-27
+updated: 2026-04-27
+confidence: high
+source: docs
+inputs: []
+outputs:
+  - name: pod_spec
+    type: string
+    description: Pod specification
+dependencies:
+  - [[kubernetes-architecture]]
+quality_score: 85
+---
+```
+
+```yaml
+---
+title: <Title>
+type: <concept|guide|reference|example>
+category: <category>
+tags:
+  - <tag1>
+  - <tag2>
+aliases:
+  - <alternative-name>
+status: active
+version: "1.0.0"
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+inputs:
+  - name: <input-name>
+    type: <string|number|boolean>
+    required: <true|false>
+    description: <description>
+outputs:
+  - name: <output-name>
+    type: <string|number|boolean>
+    description: <description>
+dependencies:
+  - [[<related-note>]]
+quality_score: 85
+---
+```
 
 ### Extended properties (optional):
 
@@ -407,6 +477,37 @@ Check:
 # REFACTOR MODE Instructions
 
 Follow these steps when refactoring existing knowledge.
+
+**IMPORTANT**: Use the bundled script for automated duplicate checking:
+
+```bash
+python3 scripts/deduplicate.py <knowledge-path> [--output results.json] [--report report.md]
+```
+
+The script uses multiple similarity strategies:
+- **Title similarity**: Fuzzy matching (40% weight)
+- **Content similarity**: Word overlap / Jaccard (40% weight)
+- **Tag similarity**: Jaccard index (20% weight)
+- **Combined score**: Weighted average
+
+## Step 1: Run Duplicate Check
+
+Execute the deduplication script:
+
+```bash
+python3 scripts/deduplicate.py examples/knowledge/ --output duplicate_results.json --report duplicate_report.md
+```
+
+## Step 2: Analyze Results
+
+The script outputs:
+- **HIGH similarity (≥70%)**: Likely duplicates - action required
+- **MEDIUM similarity (40-69%)**: Related notes - consider linking
+- **LOW similarity (<40%)**: Ignore
+
+### Running the Script Manually
+
+If you cannot run Python:
 
 ## Step 1: Scan Knowledge Base
 

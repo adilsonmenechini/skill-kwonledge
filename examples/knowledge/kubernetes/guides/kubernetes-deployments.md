@@ -1,4 +1,5 @@
 ---
+id: kubernetes.deployments
 title: Kubernetes Deployments
 type: guide
 category: kubernetes
@@ -7,12 +8,16 @@ tags:
   - yaml
   - configuration
   - rolling-update
+  - best-practices
 aliases:
   - k8s deployment
   - deployment-guide
 status: active
+version: "1.0.0"
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
+confidence: high
+source: docs
 ---
 
 # Kubernetes Deployments
@@ -27,6 +32,24 @@ Deployments are used to:
 - Scale applications up or down
 - Pause and resume deployments
 - Ensure high availability through replica management
+
+## Best Practices (from Kubernetes Blog)
+
+Based on [Kubernetes Configuration Good Practices](https://kubernetes.io/blog/2025/11/25/configuration-good-practices/):
+
+### General Configuration Practices
+- Use latest stable API version (`apps/v1`)
+- Store configuration in version control
+- Write configs in YAML, not JSON
+- Keep configuration simple and minimal
+- Add helpful annotations
+
+### Deployment Best Practices
+- Always configure health checks (liveness + readiness probes)
+- Set resource requests and limits
+- Use Pod Disruption Budgets for availability
+- Use meaningful labels with common prefixes
+- Group related objects together
 
 ## Content
 
