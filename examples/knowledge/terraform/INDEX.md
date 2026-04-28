@@ -1,8 +1,9 @@
 ---
 name: terraform
-description: Terraform - Infrastructure as Code tool by HashiCorp for provisioning cloud and on-premises resources declaratively using collaborative IaC workflow. Covers concepts (architecture), guides (basics), and references (commands).
+description: Terraform - Infrastructure as Code tool by HashiCorp for provisioning cloud and on-premises resources declaratively using collaborative IaC workflow. Covers concepts (architecture, terragrunt), guides (basics), and references (commands).
 tags:
   - terraform
+  - terragrunt
   - iac
   - infrastructure-as-code
   - devops
@@ -10,6 +11,7 @@ tags:
   - collaborative-iac
   - workspaces
   - hcp-terraform
+  - open-tofu
 aliases:
   - terraform-iac
   - tf
@@ -44,6 +46,7 @@ Based on [HashiCorp Recommended Practices](https://developer.hashicorp.com/terra
 ### Concepts
 - [[terraform-architecture]] - Core architecture, providers, resources, workspaces, collaborative IaC
 - [[terraform-basics]] - Getting started, collaborative workflow, workspace structure
+- [[terragrunt-overview]] - Terragrunt overview (DRY configs, remote state, dependency management)
 
 ### References
 - [[terraform-commands]] - CLI commands, workflow, options
