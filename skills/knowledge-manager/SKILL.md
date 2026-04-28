@@ -66,6 +66,7 @@ Extract topic from user's request:
 - Explanatory content → `concept` → `concepts/` folder
 - How-to/Process content → `guide` → `guides/` folder
 - Quick reference → `reference` → `references/` folder
+- Code examples → `example` → `examples/` folder
 
 Type inference:
 | Phrase | Type | Folder |
@@ -75,6 +76,7 @@ Type inference:
 | "how to do X" | guide | guides/ |
 | "setup", "tutorial" | guide | guides/ |
 | "commands", "reference" | reference | references/ |
+| "example", "code", "sample" | example | examples/ |
 
 ---
 
@@ -88,12 +90,72 @@ knowledge/
     ├── concepts/
     ├── guides/
     ├── references/
+    ├── examples/
     └── INDEX.md
 ```
 
 ---
 
-## Step 3: Generate File Path
+## Step 3: Generate Example from Documentation (CRITICAL)
+
+**IMPORTANT**: When creating a new topic, ALWAYS fetch documentation to create an example in `examples/` folder.
+
+### A. Find Documentation URL
+
+Search for official documentation based on category:
+
+| Category | Documentation |
+|----------|---------------|
+| kubernetes | https://kubernetes.io/docs/ |
+| terraform | https://www.terraform.io/docs/ |
+| argocd | https://argo-cd.readthedocs.io/ |
+| deepagents | https://docs.deepagents.ai/ |
+| langchain-ai | https://python.langchain.com/ |
+| docker | https://docs.docker.com/ |
+| aws | https://docs.aws.amazon.com/ |
+
+### B. Fetch and Create Example
+
+1. Use web search or fetch to get official documentation
+2. Extract a practical code example
+3. Create file in `examples/` folder
+
+Example format:
+```markdown
+---
+type: example
+category: <category>
+tags: [example, code, sample]
+status: active
+created: YYYY-MM-DD
+---
+
+# <Category> Example
+
+## Overview
+Practical example demonstrating <topic>.
+
+## Code
+
+```yaml
+# or python, bash, etc.
+<actual code from documentation>
+```
+
+## Explanation
+
+- What this code does
+- Key parameters
+- How to run it
+
+## Related
+- [[<category>-basics]]
+- [[<category>-architecture]]
+```
+
+---
+
+## Step 4: Generate File Path
 
 Format: `knowledge/<category>/<type>/<slug>.md`
 
@@ -107,7 +169,7 @@ Slug rules:
 
 ---
 
-## Step 4: Create Note Content
+## Step 5: Create Note Content
 
 ### Frontmatter (REQUIRED)
 ```yaml
@@ -150,12 +212,21 @@ Important considerations.
 
 ## Step 5: Create/Update INDEX.md
 
+**IMPORTANT**: INDEX.md must have YAML frontmatter with name, description, and tags!
+
 In `knowledge/<category>/INDEX.md`:
 
 ```markdown
+---
+name: <category>
+description: <description of this knowledge category>
+tags: [<tag1>, <tag2>, <tag3>]
+---
+
 # <Category>
 
 ## Overview
+Brief description of this knowledge category.
 
 ### Concepts
 - [[slug]] - description
@@ -166,7 +237,28 @@ In `knowledge/<category>/INDEX.md`:
 ### References
 - [[slug]] - description
 
+### Examples
+- [[<category>-example]] - Practical example from official documentation
+
+---
+
 *Last updated: YYYY-MM-DD*
+```
+
+**Example for Kubernetes:**
+```markdown
+---
+name: kubernetes
+description: Kubernetes (k8s) - Container orchestration platform for automating deployment, scaling, and management of containerized applications. Covers concepts, guides, and references.
+tags: ['kubernetes', 'containers', 'orchestration', 'devops', 'cloud-native']
+---
+
+# Kubernetes
+
+## Overview
+...
+
+*Last updated: 2026-04-27*
 ```
 
 ---
@@ -175,12 +267,14 @@ In `knowledge/<category>/INDEX.md`:
 
 Check:
 - [ ] Category folder exists
-- [ ] Type subfolders exist (concepts/, guides/, references/)
+- [ ] Type subfolders exist (concepts/, guides/, references/, examples/)
 - [ ] Note in correct subfolder
 - [ ] INDEX.md exists
+- [ ] INDEX.md has frontmatter (name, description, tags)
 - [ ] Frontmatter complete
 - [ ] All sections present
 - [ ] At least one [[link]]
+- [ ] Example file created in examples/ (fetched from official documentation)
 
 ---
 
@@ -290,11 +384,12 @@ This note has been merged into [[primary-note]].
 
 1. **Create folder structure FIRST** (create mode)
 2. **Use topic as category** - from user's request
-3. **Separate by type** - concepts/guides/references
+3. **Separate by type** - concepts/guides/references/examples
 4. **Never placeholders** - fill all sections
 5. **Cross-link** - every note links to related content
 6. **NEVER auto-delete** - always suggest (refactor mode)
 7. **Update INDEX** - after changes
+8. **Create examples/ folder** - always include examples/ folder in structure
 
 ---
 
@@ -308,6 +403,7 @@ knowledge/
     │   └── <category>-<topic>.md
     ├── guides/
     ├── references/
+    ├── examples/
     └── INDEX.md
 ```
 

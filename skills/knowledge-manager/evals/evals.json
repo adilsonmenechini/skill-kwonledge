@@ -5,7 +5,7 @@
     {
       "id": 1,
       "prompt": "Add a note about docker",
-      "expected_output": "Creates knowledge/docker/concepts/docker-architecture.md with folder structure (concepts/guides/references), proper frontmatter, all sections, and INDEX.md",
+      "expected_output": "Creates knowledge/docker/concepts/docker-architecture.md with folder structure (concepts/guides/references/examples), proper frontmatter, all sections, and INDEX.md",
       "files": []
     },
     {
