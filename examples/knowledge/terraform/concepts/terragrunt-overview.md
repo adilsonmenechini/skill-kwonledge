@@ -11,12 +11,13 @@ tags:
   - open-tofu
 summary: Terragrunt is a thin wrapper for OpenTofu/Terraform that provides extra tools for keeping your configurations DRY, managing remote state, and working with multiple Terraform modules.
 related:
-  - terraform.architecture
-  - terraform.basics
+  - [[terraform.architecture]]
+  - [[terraform.basics]]
 source: https://docs.terragrunt.com/getting-started/overview
-created_at: 2026-04-28
-updated_at: 2026-04-28
+created: 2026-04-28
+updated: 2026-04-28
 confidence: high
+status: active
 version: "1.0.0"
 quality_score: 90
 ---

@@ -37,6 +37,7 @@ This is the main knowledge base index containing all documented topics.
 - [[terraform-commands]] - CLI commands reference
 - [[terraform-ec2-example]] - EC2 instance example
 - [[terragrunt-overview]] - Terragrunt overview
+- [[terragrunt-commands]] - Terragrunt CLI commands
 
 ### ArgoCD
 - [[argo-workflows-architecture]] - GitOps continuous delivery architecture

@@ -49,7 +49,8 @@ Based on [HashiCorp Recommended Practices](https://developer.hashicorp.com/terra
 - [[terragrunt-overview]] - Terragrunt overview (DRY configs, remote state, dependency management)
 
 ### References
-- [[terraform-commands]] - CLI commands, workflow, options
+- [[terraform-commands]] - Terraform CLI commands
+- [[terragrunt-commands]] - Terragrunt CLI commands (run-all, stack, catalog)
 
 ### Examples
 - [[terraform-ec2-example]] - EC2 instance with Security Group
