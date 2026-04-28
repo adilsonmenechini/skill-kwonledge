@@ -58,6 +58,7 @@ This is the main knowledge base index containing all documented topics.
 - [[deepagents-basics]] - Getting started with Deep Agents
 - [[deepagents-commands]] - API reference
 - [[deepagents-quickstart]] - Quickstart example
+- [[clawteam]] - Agent Swarm Intelligence (HKUDS)
 
 ### LangChain
 - [[langchain-fundamentals]] - Core components and concepts
