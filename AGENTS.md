@@ -23,45 +23,33 @@ skill-kwonledge/
 ├── examples/
 │   └── knowledge/
 │       ├── IaC/           # terraform, terragrunt, ansible
-│       │   ├── terraform/
-│       │   ├── terragrunt/
-│       │   └── ansible/
-│       ├── DevOps/          # kubernetes, argocd
-│       │   ├── kubernetes/
-│       │   └── argocd/
+│       ├── DevOps/         # kubernetes, argocd
 │       ├── AI/             # deepagents, langchain-ai
-│       │   ├── deepagents/
-│       │   └── langchain-ai/
 │       └── patterns/      # cross-category patterns
 ├── AGENTS.md
 ├── .gitignore
 └── README.md
 ```
-skill-kwonledge/
-├── skills/
-│   ├── knowledge-manager/   # Create full category structures
-│   │   ├── SKILL.md
-│   │   ├── evals/
-│   │   ├── scripts/          # deduplicate.py, update_schema.py
-│   │   └── resources/
-│   └── knowledge-create/     # Create validated individual notes
-│       ├── SKILL.md
-│       ├── evals/
-│       ├── templates/        # concept, pattern, runbook, architecture
-│       ├── validators/        # JSON Schema
-│       └── hooks/            # Post-creation actions
-├── examples/
-│   └── knowledge/
-│       ├── kubernetes/      # Container orchestration
-│       ├── terraform/       # Infrastructure as Code
-│       ├── argocd/          # GitOps continuous delivery
-│       ├── deepagents/       # Autonomous AI agents
-│       ├── langchain-ai/    # LLM framework
-│       └── patterns/        # Reusable patterns
-├── AGENTS.md
-├── .gitignore
-└── README.md
-```
+
+---
+
+## Topics by Category
+
+### IaC (Infrastructure as Code)
+- **Terraform**: `examples/knowledge/IaC/terraform/`
+- **Terragrunt**: `examples/knowledge/IaC/terragrunt/`
+- **Ansible**: `examples/knowledge/IaC/ansible/`
+
+### DevOps
+- **Kubernetes**: `examples/knowledge/DevOps/kubernetes/`
+- **ArgoCD**: `examples/knowledge/DevOps/argocd/`
+
+### AI
+- **Deep Agents**: `examples/knowledge/AI/deepagents/`
+- **LangChain**: `examples/knowledge/AI/langchain-ai/`
+
+### Patterns (cross-category)
+- `examples/knowledge/patterns/`
 
 ---
 
@@ -126,9 +114,9 @@ This is the main skill for knowledge management in this repo.
 ### Trigger Phrases
 
 **CREATE Mode:**
-- "add [topic]" - e.g., "add kubernetes", "add docker"
+- "add [topic]" - e.g., "add ansible"
+- "add [category]/[topic]" - e.g., "add IaC/ansible"
 - "document [subject]"
-- "create knowledge"
 - "research [topic]"
 - "learn about"
 
@@ -140,16 +128,17 @@ This is the main skill for knowledge management in this repo.
 
 ### Usage
 
-When user wants to add knowledge about a topic:
-
 ```bash
-# Creates structure like:
-knowledge/<topic>/
-├── concepts/       # Explanatory content
-├── guides/         # How-to content
-├── references/     # Quick references/commands
-├── examples/       # Code examples from official docs
-└── INDEX.md        # Category index
+# With category:
+"add IaC/ansible" → examples/knowledge/IaC/ansible/
+"add DevOps/kubernetes" → examples/knowledge/DevOps/kubernetes/
+"add AI/langchain" → examples/knowledge/AI/langchain-ai/
+
+# Without category (creates in root):
+"add ansible" → examples/knowledge/ansible/ (if no category)
+
+# Patterns (cross-category):
+"create pattern for DRY" → examples/knowledge/patterns/terragrunt-dry-configs.md
 ```
 
 ---

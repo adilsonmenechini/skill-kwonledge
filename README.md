@@ -10,8 +10,7 @@ skill-kwonledge/
 │   ├── knowledge-manager/   # Create full category structures
 │   │   ├── SKILL.md
 │   │   ├── evals/
-│   │   ├── scripts          # deduplicate.py, update_schema.py
-│   │   └── resources/       # Templates
+│   │   └── scripts          # deduplicate.py, update_schema.py
 │   └── knowledge-create/     # Create validated individual notes
 │       ├── SKILL.md
 │       ├── evals/
@@ -21,41 +20,9 @@ skill-kwonledge/
 ├── examples/
 │   └── knowledge/
 │       ├── IaC/           # terraform, terragrunt, ansible
-│       │   ├── terraform/
-│       │   ├── terragrunt/
-│       │   └── ansible/
-│       ├── DevOps/          # kubernetes, argocd
-│       │   ├── kubernetes/
-│       │   └── argocd/
+│       ├── DevOps/         # kubernetes, argocd
 │       ├── AI/             # deepagents, langchain-ai
-│       │   ├── deepagents/
-│       │   └── langchain-ai/
-│       └── patterns/        # cross-category patterns
-├── AGENTS.md
-├── .gitignore
-└── README.md
-```
-skill-kwonledge/
-├── skills/
-│   ├── knowledge-manager/   # Create full category structures
-│   │   ├── SKILL.md
-│   │   ├── evals/
-│   │   ├── scripts/          # deduplicate.py, update_schema.py
-│   │   └── resources/       # Templates
-│   └── knowledge-create/     # Create validated individual notes
-│       ├── SKILL.md
-│       ├── evals/
-│       ├── templates/       # concept, pattern, runbook, architecture
-│       ├── validators/       # JSON Schema
-│       └── hooks/           # Post-creation actions
-├── examples/
-│   └── knowledge/
-│       ├── kubernetes/      # Container orchestration
-│       ├── terraform/       # Infrastructure as Code
-│       ├── argocd/          # GitOps continuous delivery
-│       ├── deepagents/      # Autonomous AI agents
-│       ├── langchain-ai/     # LLM framework
-│       └── patterns/        # Reusable patterns (Terragrunt, etc.)
+│       └── patterns/       # cross-category patterns
 ├── AGENTS.md
 ├── .gitignore
 └── README.md
@@ -112,14 +79,12 @@ skill-kwonledge/
 ### Folder Organization
 
 ```
-knowledge/<topic>/
+examples/knowledge/<category>/<topic>/
 ├── concepts/       # Explanatory content
 ├── guides/         # How-to content
 ├── references/     # Quick references/commands
 ├── examples/       # Code examples from official docs
-├── patterns/       # Reusable patterns
-├── runbooks/       # Operational procedures
-└── INDEX.md        # Category index
+└── INDEX.md        # Topic index
 ```
 
 ### Note Types (knowledge-create)
