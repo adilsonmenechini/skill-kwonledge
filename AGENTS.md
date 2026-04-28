@@ -12,6 +12,33 @@ skill-kwonledge/
 │   ├── knowledge-manager/   # Create full category structures
 │   │   ├── SKILL.md
 │   │   ├── evals/
+│   │   ├── scripts          # deduplicate.py, update_schema.py
+│   │   └── resources/
+│   └── knowledge-create/     # Create validated individual notes
+│       ├── SKILL.md
+│       ├── evals/
+│       ├── templates/       # concept, pattern, runbook, architecture
+│       ├── validators/     # JSON Schema
+│       └── hooks/          # Post-creation actions
+├── examples/
+│   └── knowledge/
+│       ├── kubernetes/    # Container orchestration (DevOps)
+│       ├── terraform/     # Infrastructure as Code (IaC)
+│       ├── terragrunt/     # Terraform wrapper (IaC)
+│       ├── ansible/        # IT automation (IaC)
+│       ├── argocd/         # GitOps continuous delivery (DevOps)
+│       ├── deepagents/      # Autonomous AI agents (AI)
+│       ├── langchain-ai/  # LLM framework (AI)
+│       └── patterns/      # Reusable patterns (cross-category)
+├── AGENTS.md
+├── .gitignore
+└── README.md
+```
+skill-kwonledge/
+├── skills/
+│   ├── knowledge-manager/   # Create full category structures
+│   │   ├── SKILL.md
+│   │   ├── evals/
 │   │   ├── scripts/          # deduplicate.py, update_schema.py
 │   │   └── resources/
 │   └── knowledge-create/     # Create validated individual notes
@@ -42,9 +69,17 @@ skill-kwonledge/
 Create full category structures.
 
 **Trigger Phrases:**
-- "add [topic]" → e.g., "add kubernetes", "add docker"
+- "add [topic]" → e.g., "add kubernetes", "add ansible"
+- "add [category]/[topic]" → e.g., "add IaC/ansible", "add DevOps/kubernetes"
 - "document [subject]"
 - "create knowledge"
+
+**Category Format:**
+| Request | Category | Topic |
+|---------|---------|-------|
+| "add IaC/ansible" | IaC | ansible |
+| "add DevOps/kubernetes" | DevOps | kubernetes |
+| "add AI/langchain" | AI | langchain |
 
 **Refactor Mode:**
 - "find duplicates"
@@ -242,6 +277,8 @@ Output: <expected result>
 |-------|-------|--------------|
 | Kubernetes | 8 | ✅ Config good practices |
 | Terraform | 4 | ✅ Collaborative IaC |
+| Terragrunt | 3 | ✅ DRY configs |
+| Ansible | 3 | ✅ Best practices |
 | ArgoCD | 4 | ✅ GitOps practices |
 | Deep Agents | 4 | - |
 | LangChain | 4 | - |

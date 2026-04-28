@@ -10,6 +10,33 @@ skill-kwonledge/
 │   ├── knowledge-manager/   # Create full category structures
 │   │   ├── SKILL.md
 │   │   ├── evals/
+│   │   ├── scripts          # deduplicate.py, update_schema.py
+│   │   └── resources/       # Templates
+│   └── knowledge-create/     # Create validated individual notes
+│       ├── SKILL.md
+│       ├── evals/
+│       ├── templates/        # concept, pattern, runbook, architecture
+│       ├── validators/       # JSON Schema
+│       └── hooks/           # Post-creation actions
+├── examples/
+│   └── knowledge/
+│       ├── kubernetes/    # Container orchestration (DevOps)
+│       ├── terraform/     # Infrastructure as Code (IaC)
+│       ├── terragrunt/     # Terraform wrapper (IaC)
+│       ├── ansible/       # IT automation (IaC)
+│       ├── argocd/         # GitOps continuous delivery (DevOps)
+│       ├── deepagents/      # Autonomous AI agents (AI)
+│       ├── langchain-ai/   # LLM framework (AI)
+│       └── patterns/       # Reusable patterns (cross-category)
+├── AGENTS.md
+├── .gitignore
+└── README.md
+```
+skill-kwonledge/
+├── skills/
+│   ├── knowledge-manager/   # Create full category structures
+│   │   ├── SKILL.md
+│   │   ├── evals/
 │   │   ├── scripts/          # deduplicate.py, update_schema.py
 │   │   └── resources/       # Templates
 │   └── knowledge-create/     # Create validated individual notes
@@ -35,15 +62,23 @@ skill-kwonledge/
 
 | Skill | Use Case | Output |
 |-------|----------|--------|
-| **knowledge-manager** | "add kubernetes" | Full folder structure |
+| **knowledge-manager** | "add kubernetes" or "add IaC/ansible" | Full folder structure |
 | **knowledge-create** | "create pattern for X" | Single validated note |
 
 ### When to Use Each
 
 **knowledge-manager** - Create complete category structure:
-- "add [topic]" → creates `knowledge/<topic>/`
+- "add [topic]" → e.g., `examples/knowledge/ansible/`
+- "add [category]/[topic]" → e.g., `examples/knowledge/ansible/` (with IaC category)
 - "find duplicates" → deduplication check
 - "clean up" → optimize cross-links
+
+**Supported Categories:**
+| Category | Topics |
+|----------|-------|
+| IaC | terraform, terragrunt, ansible, puppet, chef |
+| DevOps | kubernetes, argocd, docker, helm |
+| AI | deepagents, langchain, langgraph |
 
 **knowledge-create** - Create validated individual notes:
 - "create runbook for incident response"
@@ -124,11 +159,13 @@ quality_score: 85
 | Topic | Notes | Best Practices |
 |-------|-------|----------------|
 | Kubernetes | 8 | ✅ Config good practices |
-| Terraform | 5 | ✅ Collaborative IaC + Terragrunt |
+| Terraform | 4 | ✅ Collaborative IaC |
+| Terragrunt | 3 | ✅ DRY configs |
+| Ansible | 3 | ✅ Best practices |
 | ArgoCD | 4 | ✅ GitOps practices |
 | Deep Agents | 4 | - |
 | LangChain | 4 | - |
-| Patterns | 1 | ✅ Terragrunt DRY configs |
+| Patterns | 2 | ✅ ClawTeam, Terragrunt DRY |
 
 ### Topics Details
 
@@ -137,8 +174,16 @@ quality_score: 85
 - Best practices: Health checks, labels, networking, resource limits
 
 **Terraform** - Infrastructure as Code
-- architecture, basics, commands, terragrunt-overview
-- Best practices: Collaborative IaC, workspace model, Terragrunt patterns
+- architecture, basics, commands
+- Best practices: Collaborative IaC, workspace model
+
+**Terragrunt** - Terraform wrapper
+- overview, commands, vpc-example, getting-started
+- Best practices: DRY configs, remote state, stack operations
+
+**Ansible** - IT automation
+- overview, directory-layout, commands
+- Best practices: Roles, inventory separation, variables
 
 **ArgoCD** - GitOps continuous delivery
 - architecture, basics, commands
@@ -151,6 +196,7 @@ quality_score: 85
 - fundamentals, getting-started, components
 
 **Patterns** - Reusable Patterns
+- clawteam (Agent Swarm Intelligence)
 - terragrunt-dry-configs
 
 ## Best Practices Sources
