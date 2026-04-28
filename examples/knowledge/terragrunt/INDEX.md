@@ -29,6 +29,9 @@ Terragrunt is a thin wrapper for OpenTofu/Terraform that provides extra tools fo
 ## Concepts
 - [[terragrunt-overview]] - What is Terragrunt, key features, usage
 
+## Guides
+- [[terragrunt-getting-started]] - Step-by-step setup guide
+
 ## References
 - [[terragrunt-commands]] - CLI commands (run-all, stack, catalog)
 

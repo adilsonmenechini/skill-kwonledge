@@ -42,7 +42,10 @@ This is the main knowledge base index containing all documented topics.
 ### Terragrunt
 - [[terragrunt-overview]] - Terragrunt overview (wrapper for Terraform)
 - [[terragrunt-commands]] - Terragrunt CLI commands
-- [[terragrunt-dry-configs]] - DRY configuration pattern
+- [[terragrunt-vpc-example]] - VPC example
+
+### Patterns
+- [[terragrunt-dry-configs]] - Terragrunt DRY configuration pattern
 
 ### ArgoCD
 - [[argo-workflows-architecture]] - GitOps continuous delivery architecture
