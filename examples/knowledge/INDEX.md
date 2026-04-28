@@ -44,8 +44,10 @@ This is the main knowledge base index containing all documented topics.
 - [[terragrunt-commands]] - Terragrunt CLI commands
 - [[terragrunt-vpc-example]] - VPC example
 
-### Patterns
-- [[terragrunt-dry-configs]] - Terragrunt DRY configuration pattern
+### Ansible
+- [[ansible-overview]] - IT automation overview
+- [[ansible-directory-layout]] - Directory layout best practices
+- [[ansible-commands]] - CLI commands reference
 
 ### ArgoCD
 - [[argo-workflows-architecture]] - GitOps continuous delivery architecture
