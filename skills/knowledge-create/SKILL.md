@@ -42,10 +42,17 @@ confidence: string    # low | medium | high
 
 | Type | Path |
 |------|------|
-| concept | `knowledge/{domain}/concepts/` |
-| pattern | `knowledge/patterns/` |
-| runbook | `knowledge/runbooks/` |
-| architecture | `knowledge/architectures/` |
+| concept | `examples/knowledge/<category>/<topic>/concepts/` |
+| pattern | `examples/knowledge/patterns/` |
+| runbook | `examples/knowledge/<category>/<topic>/runbooks/` |
+| architecture | `examples/knowledge/<category>/<topic>/architectures/` |
+
+**Category Mapping:**
+| Domain | Category |
+|--------|----------|
+| terraform, terragrunt, ansible | IaC |
+| kubernetes, argocd, docker | DevOps |
+| deepagents, langchain | AI |
 
 ## 🧱 Frontmatter Template
 

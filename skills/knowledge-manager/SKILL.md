@@ -130,7 +130,16 @@ examples/knowledge/<topic>/
 ```
 
 Example:
-- "add ansible" → `examples/knowledge/ansible/` (if no category folder exists)
+- "add ansible" → checks if existing in category first, otherwise creates new topic
+
+**For patterns (cross-category use patterns/ folder):**
+```
+examples/knowledge/patterns/
+    └── <pattern-name>.md
+```
+
+Example:
+- "create pattern for DRY configs" → `examples/knowledge/patterns/terragrunt-dry-configs.md`
 
 **Category Folders (always use these paths):**
 ```
