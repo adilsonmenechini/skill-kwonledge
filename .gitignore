@@ -36,6 +36,7 @@ logs/
 # Temporary
 # ----------------------------
 *.temp
-skills-bkp
 temp/
 tmp/
+
+.obsidian
