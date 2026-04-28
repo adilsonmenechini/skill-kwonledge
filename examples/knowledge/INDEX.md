@@ -9,6 +9,8 @@ tags:
   - ai
   - llm
   - patterns
+  - terraform
+  - terragrunt
 aliases:
   - kb
   - knowledge
@@ -36,8 +38,11 @@ This is the main knowledge base index containing all documented topics.
 - [[terraform-basics]] - Getting started with Terraform
 - [[terraform-commands]] - CLI commands reference
 - [[terraform-ec2-example]] - EC2 instance example
-- [[terragrunt-overview]] - Terragrunt overview
+
+### Terragrunt
+- [[terragrunt-overview]] - Terragrunt overview (wrapper for Terraform)
 - [[terragrunt-commands]] - Terragrunt CLI commands
+- [[terragrunt-dry-configs]] - DRY configuration pattern
 
 ### ArgoCD
 - [[argo-workflows-architecture]] - GitOps continuous delivery architecture
