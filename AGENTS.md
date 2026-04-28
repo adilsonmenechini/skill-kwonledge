@@ -8,16 +8,19 @@ This is a **knowledge base repository** containing Obsidian-style knowledge note
 
 ```
 skill-kwonledge/
-├── skills/              # OpenCode skills
-│   ├── knowledge-manager/   # Unified skill (create + refactor)
-│   ├── knowledge-creator/    # Create notes only
-│   └── knowledge-refactor/     # Refactor only
-├── examples/           # Knowledge base
+├── skills/
+│   └── knowledge-manager/   # Unified skill (create + refactor)
+│       ├── SKILL.md           # Main skill
+│       ├── evals/            # Test cases
+│       ├── scripts/           # Automation scripts
+│       └── resources/         # Templates
+├── examples/
 │   └── knowledge/
-│       ├── kubernetes/
-│       ├── terraform/
-│       ├── argocd/
-│       └── INDEX.md
+│       ├── kubernetes/      # Container orchestration
+│       ├── terraform/      # Infrastructure as Code
+│       ├── argocd/         # GitOps continuous delivery
+│       ├── deepagents/     # Autonomous AI agents
+│       └── langchain-ai/  # LLM framework
 ├── AGENTS.md           # Agent instructions (this file)
 ├── .gitignore
 └── README.md
@@ -54,8 +57,76 @@ knowledge/<topic>/
 ├── concepts/       # Explanatory content
 ├── guides/         # How-to content
 ├── references/     # Quick references/commands
+├── examples/       # Code examples from official docs
 └── INDEX.md        # Category index
 ```
+
+---
+
+## Scripts
+
+### Deduplicate Check
+
+```bash
+python3 skills/knowledge-manager/scripts/deduplicate.py examples/knowledge/
+```
+
+### Update Schema
+
+```bash
+python3 skills/knowledge-manager/scripts/update_schema.py
+```
+
+---
+
+## Knowledge Note Schema
+
+All notes follow a formal schema:
+
+```yaml
+---
+id: kubernetes.pods
+title: Kubernetes Pods
+type: concept
+category: kubernetes
+tags:
+  - containers
+  - pods
+aliases:
+  - k8s pods
+status: active
+version: "1.0.0"
+created: 2026-04-27
+updated: 2026-04-28
+confidence: high
+source: docs
+inputs: []
+outputs: []
+dependencies: []
+quality_score: 85
+---
+```
+
+### Schema Fields
+
+| Field | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | Text | Yes | Unique ID (e.g., `kubernetes.pods`) |
+| `title` | Text | Yes | Human-readable title |
+| `type` | Text | Yes | concept/guide/reference/example |
+| `category` | Text | Yes | Knowledge category |
+| `tags` | List | Yes | Topics for filtering |
+| `aliases` | List | No | Alternative names |
+| `status` | Text | Yes | active/draft/done |
+| `version` | Text | Yes | Semantic version |
+| `created` | Date | Yes | Creation date |
+| `updated` | Date | Yes | Last update |
+| `confidence` | Text | Yes | high/medium/low |
+| `source` | Text | Yes | docs/internal/external |
+| `inputs` | List | No | Expected inputs |
+| `outputs` | List | No | Expected outputs |
+| `dependencies` | List | No | Related notes |
+| `quality_score` | Number | No | Quality (0-100) |
 
 ---
 
@@ -68,10 +139,9 @@ For creating new skills in this repo, follow this pattern based on `skill-creato
 ```
 skills/<skill-name>/
 ├── SKILL.md              # Main skill file (REQUIRED)
-├── INDEX.md             # Skill description & examples
 ├── evals/
 │   └── evals.json       # Test cases
-└── resources/
+���── resources/
     ├── template.md     # Output template
     └── quality_rules.md # Quality standards
 ```
@@ -111,72 +181,23 @@ Input: <user prompt>
 Output: <expected result>
 ```
 
-### Description Best Practices
-
-Make descriptions "pushy" - include specific contexts for when to trigger:
-
-```yaml
-# BAD - too generic
-description: "Create knowledge notes"
-
-# GOOD - pushy with contexts
-description: "Create structured Obsidian-style knowledge notes. Use this skill whenever user wants to document concepts, create guides, build knowledge base about specific topics, or capture information - even if they don't explicitly say 'create a note'. Also triggers when user mentions researching, learning about, or documenting subjects."
-```
-
-### Required Tools Declaration
-
-Always declare required tools in frontmatter:
-
-```yaml
-tools: [filesystem, read, write, glob]
-```
-
----
-
-## Knowledge Note Structure
-
-Each knowledge note follows this structure:
-
-| Element | Required | Description |
-|--------|----------|-------------|
-| Frontmatter | Yes | type, category, tags, status, created |
-| Overview | Yes | 1-2 sentence summary |
-| Purpose | Yes | Why this exists |
-| Content | Yes | Main explanation |
-| Usage | Yes | Practical examples |
-| Relationships | Yes | [[Wiki-links]] to related notes |
-| Notes | Yes | Important considerations |
-| References | Yes | Source links |
-
-### Note Types
-
-| Type | Folder | Use Case |
-|------|--------|----------|
-| concept | concepts/ | Explanatory content, architecture |
-| guide | guides/ | How-to documentation, tutorials |
-| reference | references/ | Quick references, commands, cheatsheets |
-
-### Frontmatter Template
-
-```yaml
----
-type: <concept|guide|reference>
-category: <topic-name>
-tags: [<topic>, <subtopic>]
-status: active
-created: YYYY-MM-DD
----
-```
-
 ---
 
 ## Available Knowledge Topics
 
-| Topic | Concepts | Guides | References | Total |
-|-------|----------|--------|------------|-------|
-| Kubernetes | 2 | 3 | 2 | 7 |
-| Terraform | 1 | 1 | 1 | 3 |
-| ArgoCD | 1 | 1 | 1 | 3 |
+| Topic | Notes | Best Practices |
+|-------|-------|--------------|
+| Kubernetes | 8 | ✅ Config good practices |
+| Terraform | 4 | ✅ Collaborative IaC |
+| ArgoCD | 4 | ✅ GitOps practices |
+| Deep Agents | 4 | - |
+| LangChain | 4 | - |
+
+### Best Practices Sources
+
+- **Kubernetes**: [Configuration Good Practices](https://kubernetes.io/blog/2025/11/25/configuration-good-practices/)
+- **Terraform**: [Recommended Practices](https://developer.hashicorp.com/terraform/cloud-docs/recommended-practices)
+- **ArgoCD**: [Best Practices](https://argo-cd.readthedocs.io/en/stable/user-guide/best_practices/)
 
 ---
 
@@ -185,21 +206,22 @@ created: YYYY-MM-DD
 ### Creating New Knowledge
 1. Use `knowledge-manager` skill
 2. Request format: "add [topic name]"
-3. Creates folder structure automatically
+3. Creates folder structure automatically with examples from official docs
 4. Example: `add docker` → creates `knowledge/docker/`
 
 ### Writing Notes
 - Use wiki-style links: `[[topic-name]]`
-- Group notes by type: `concepts/`, `guides/`, `references/`
+- Group notes by type: `concepts/`, `guides/`, `references/`, `examples/`
 - Include practical examples in Usage sections
 - Update `INDEX.md` after adding new notes
 - NEVER leave empty sections in notes
-- Update category INDEX.md when adding new notes
+- Use official documentation for examples
 
 ### Conventions
 - Category folder = topic name (lowercase, hyphen-separated)
 - File path: `knowledge/<category>/<type>/<slug>.md`
-- Frontmatter fields: `type`, `category`, `tags`, `status`, `created` (date format: YYYY-MM-DD)
+- Frontmatter fields: All schema fields required
+- Date format: YYYY-MM-DD
 
 ---
 
@@ -208,25 +230,22 @@ created: YYYY-MM-DD
 1. Use the `knowledge-manager` skill
 2. Request: "add [topic name]"
 3. Skill creates folder structure automatically
+4. Use official docs for examples
 
 Example flows:
 
 ```bash
 # Add new topic
 "add docker"
-→ Creates knowledge/docker/ with concepts/, guides/, references/, INDEX.md
+→ Creates knowledge/docker/ with concepts/, guides/, references/, examples/, INDEX.md
 
-# Document subject
-"document Terraform"
-→ Creates knowledge/terraform/ with relevant notes
-
-# Research topic
-"research Kubernetes ingress"
-→ Creates knowledge/kubernetes/ with ingress notes
+# Document with best practices
+"document Terraform with best practices"
+→ Creates knowledge/terraform/ with collaborative IaC workflow
 
 # Find duplicates
 "check for duplicates"
-→ Scans knowledge base, reports similarity between notes
+→ Runs deduplicate.py script
 ```
 
 ---
@@ -243,9 +262,7 @@ triggers: [
   "document this",
   "create knowledge",
   "research",
-  "learn about",
-  "capture",
-  "build knowledge"
+  "learn about"
 ]
 ```
 
@@ -262,7 +279,8 @@ Create `evals/evals.json` with realistic test cases:
       "id": 1,
       "prompt": "User task prompt",
       "expected_output": "Description of expected result",
-      "files": []
+      "files": [],
+      "assertions": []
     }
   ]
 }
@@ -270,12 +288,13 @@ Create `evals/evals.json` with realistic test cases:
 
 ### Output Quality Checklist
 
-- [ ] Frontmatter complete (type, category, tags, status, created)
+- [ ] Frontmatter complete (all schema fields)
 - [ ] All 7 sections present (Overview, Purpose, Content, Usage, Relationships, Notes, References)
 - [ ] No empty sections
 - [ ] At least one [[link]] in Relationships
 - [ ] Practical examples in Usage section
 - [ ] INDEX.md updated for category
+- [ ] Best practices from official docs
 
 ---
 
@@ -294,8 +313,8 @@ Create `evals/evals.json` with realistic test cases:
 | Add knowledge | "add [topic]" |
 | Document subject | "document [subject]" |
 | Find duplicates | "find duplicates" |
-| Clean up | "clean up notes" |
+| Check with docs | "use official documentation" |
 
 ---
 
-*Last updated: 2026-04-27*
+*Last updated: 2026-04-28*
