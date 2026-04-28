@@ -63,7 +63,6 @@ This is the main knowledge base index containing all documented topics.
 - [[langchain-lcel-example]] - LCEL chain example
 
 ### Patterns
-- [[terragrunt-dry-configs]] - Terragrunt DRY configuration pattern
 
 ## Adding New Topics
 

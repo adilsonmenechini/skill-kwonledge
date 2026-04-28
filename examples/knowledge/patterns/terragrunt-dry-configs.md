@@ -11,26 +11,27 @@ tags:
   - include
 summary: Use include blocks and shared configurations to avoid code duplication across Terraform units.
 related:
-  - [[terragrunt.concept.overview]]
-  - [[terraform.architecture]]
+  - [[terragrunt-overview]]
+  - [[terragrunt-commands]]
+  - [[terragrunt-vpc-example]]
 source: https://docs.terragrunt.com/getting-started/overview
 created: 2026-04-28
 updated: 2026-04-28
 confidence: high
 status: active
 version: "1.0.0"
-quality_score: 85
+quality_score: 90
 ---
 
 # Terragrunt DRY Configurations
 
-## 🎯 Problem
-
+## Problem
 Managing multiple Terraform units leads to code duplication. Each unit needs the same provider configuration, backend settings, and common variables. Manually maintaining these across many units is error-prone and hard to maintain.
 
-## 🧩 Solution
-
+## Solution
 Use Terragrunt's `include` block to create a configuration hierarchy where shared settings are defined once in a root file and inherited by child units.
+
+## Pattern
 
 ### Root Configuration (root.hcl)
 
@@ -45,7 +46,7 @@ remote_state {
   config = {
     bucket         = "my-terraform-state"
     key             = "${path_relative_to_include()}/terraform.tfstate"
-    region          = "us-east-1"
+    region         = "us-east-1"
     encrypt         = true
     dynamodb_table  = "terraform-locks"
   }
@@ -90,11 +91,12 @@ inputs = {
 }
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ### Configuration Hierarchy
 
 ```
+.
 ├── root.hcl                    # Shared config (backend, provider)
 ├── vpc/
 │   └── terragrunt.hcl         # Inherits root + VPC inputs
@@ -110,18 +112,16 @@ inputs = {
 .terragrunt-cache/
 └── vpc/
     ├── backend.tf      # Generated from remote_state
-    ├── provider.tf     # Generated from generate block
-    └── main.tf         # Downloaded module
+    ├── provider.tf    # Generated from generate block
+    └── main.tf        # Downloaded module
 ```
 
-## ⚙️ Key Patterns
+## Key Patterns
 
 ### 1. Dynamic State Keys
-
 Use `path_relative_to_include()` to avoid state key collisions:
 
 ```hcl
-# In root.hcl
 config = {
   key = "${path_relative_to_include()}/terraform.tfstate"
 }
@@ -161,29 +161,7 @@ dependency "vpc" {
 }
 ```
 
-## 📊 Observability
-
-### Stack Operations
-
-```bash
-# Run commands across all units
-terragrunt run-all plan
-terragrunt run-all apply
-terragrunt run-all destroy
-
-# Show execution order (DAG)
-terragrunt run-all run --terragrunt-print-struct
-```
-
-### Logging
-
-Terragrunt prefixes logs with module name:
-```
-16:32:08.944 INFO   [vpc] Processing module
-16:32:08.944 INFO   [ec2] Processing module
-```
-
-## ⚠️ Trade-offs
+## Trade-offs
 
 | Aspect | Benefit | Risk |
 |--------|---------|------|
@@ -192,12 +170,11 @@ Terragrunt prefixes logs with module name:
 | Include inheritance | Easy updates | Debugging harder |
 | Cache directory | Reproducibility | Disk usage |
 
-## 🔗 Related
+## Related
+- [[terragrunt-overview]] - Terragrunt overview
+- [[terragrunt-commands]] - Terragrunt CLI commands
+- [[terragrunt-vpc-example]] - VPC example
 
-- [[terragrunt.concept.overview]] - Terragrunt overview
-- [[terraform.architecture]] - Terraform architecture
-
-## 📚 References
-
+## References
 - [Terragrunt Include Block](https://docs.terragrunt.com/features/units/includes/)
 - [Terragrunt Remote State](https://docs.terragrunt.com/features/units/state-backend/)
