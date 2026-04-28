@@ -1,0 +1,24 @@
+{
+  "skill_name": "knowledge-creator",
+  "description": "Create structured knowledge notes in Obsidian-compatible format with proper frontmatter, sections, and linking",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a note about event-driven architecture to my knowledge base",
+      "expected_output": "Creates knowledge/architecture/event-driven-architecture.md with proper frontmatter (type, category, tags), all required sections (Overview, Purpose, Content, Usage), at least one [[link]] to related notes",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I just learned about the adapter pattern, can you document it?",
+      "expected_output": "Creates knowledge/programming/adapter-pattern.md with clear explanation, practical example, and links to related patterns like decorator or facade",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a quick reference card for Docker commands I use often",
+      "expected_output": "Creates knowledge/devops/docker-commands.md as a reference type note with categorized command examples",
+      "files": []
+    }
+  ]
+}

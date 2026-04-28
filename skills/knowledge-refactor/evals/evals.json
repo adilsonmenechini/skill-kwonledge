@@ -1,0 +1,24 @@
+{
+  "skill_name": "knowledge-refactor",
+  "description": "Detect duplicate or overlapping knowledge notes and propose safe merge strategies without losing information",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Check my knowledge base for duplicate notes",
+      "expected_output": "Scans knowledge/**/*.md, produces duplicate report with HIGH/MEDIUM/LOW similarity groupings, suggests merge or link actions",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I have too many overlapping notes about microservices, clean them up",
+      "expected_output": "Identifies overlapping notes, selects primary note, proposes what to merge/remove, NEVER auto-deletes",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Before I set up RAG, make sure my notes are not duplicated",
+      "expected_output": "Runs duplicate detection, provides cleanup actions, prioritizes HIGH similarity duplicates",
+      "files": []
+    }
+  ]
+}

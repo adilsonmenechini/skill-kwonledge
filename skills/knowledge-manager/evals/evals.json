@@ -1,0 +1,30 @@
+{
+  "skill_name": "knowledge-manager",
+  "description": "Complete knowledge base management - create, organize, and maintain Obsidian-style knowledge notes with full lifecycle support",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a note about docker",
+      "expected_output": "Creates knowledge/docker/concepts/docker-architecture.md with folder structure (concepts/guides/references), proper frontmatter, all sections, and INDEX.md",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Find duplicates in my knowledge base",
+      "expected_output": "Scans knowledge/**/*.md, produces duplicate report grouped by HIGH/MEDIUM/LOW similarity, suggests actions",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Document how to set up CI/CD pipeline",
+      "expected_output": "Creates knowledge/<category>/guides/<topic>.md with guide type, folder structure, proper frontmatter",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Clean up overlapping notes about microservices",
+      "expected_output": "Identifies similar notes, proposes merge or link actions, NEVER auto-deletes",
+      "files": []
+    }
+  ]
+}
